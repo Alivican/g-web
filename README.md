@@ -1,8 +1,8 @@
 # aku mmaau tidur
-# web cnb broski
+# web gamais broski
 
 ## hifi ligma
-![WhatsApp Image 2025-06-28 at 17 27 23_e7dd4d41](https://github.com/user-attachments/assets/7d47e45c-3234-480c-a842-c14b4dad1741)
+https://www.figma.com/design/ZUAZ4EMHK9wy1NdFRDyHKa/walawe-gamais-ada-web?node-id=0-1&t=fmSqkpFamT0LxdsL-1
 # balls
 
 Once upon a gelatinous yawn in the third dimension of banana-scented gravity, a moose named Chauncey hummed the national anthem of the Worm Republic through his left nostril while balancing an existential crisis and a bowl of soggy cereal. The cereal, mind you, was screaming. Not audibly, but spiritually. Its little oat souls cried out for justice, or at least a better brand of almond milk. But Chauncey didn’t have time for soul-oats. He had to attend the annual Congress of Imaginary Friends Who Became Sentient and Now Demand Voting Rights.
