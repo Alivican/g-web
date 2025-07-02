@@ -17,8 +17,10 @@ export default async function HomePage() {
       <main className="bg-background text-foreground">
         {/* Hero Section */}
         <section className="flex h-[80vh] flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-transparent text-center">
-          <h1 className="text-5xl font-bold tracking-tight md:text-6xl">
-            Himpunan Mahasiswa Fisika ITB
+          <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-6xl">
+            Keluarga Mahasiswa Islam
+            <br />
+            (GAMAIS) ITB
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
             Wadah aspirasi dan pengembangan diri bagi mahasiswa Fisika ITB.

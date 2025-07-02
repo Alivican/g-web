@@ -36,19 +36,24 @@ export function TopNav({
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex h-16 w-16 items-center justify-center">
-              <img src="/himafi.jpeg" alt="himafi" width={128} height={128} />
+              <img
+                src="/LOGO GAMAIS.png"
+                alt="gamais"
+                width={128}
+                height={128}
+              />
             </div>
-            <span className="font-bold max-lg:hidden">HIMAFI ITB</span>
+            <span className="font-bold max-lg:hidden">GAMAIS ITB</span>
           </Link>
         </div>
 
         {/* Center: Navigation Links (Desktop) */}
         <nav className="items-center space-x-6 text-sm font-medium max-lg:hidden">
-          <Link href="/about">About</Link>
-          <Link href="/programs">Programs</Link>
-          <Link href="/news">News</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/faq">FAQ</Link>
+          <Link href="/tentangkami">Tentang Kami</Link>
+          <Link href="/events">Events</Link>
+          <Link href="/newseditor">News Editor</Link>
+          <Link href="/contohabout">[Contoh] About</Link>
+          <Link href="/contohfaq">[Contoh] FAQ</Link>
         </nav>
 
         {/* Right: Search, User, and Mobile Menu */}
