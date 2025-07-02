@@ -10,6 +10,7 @@ import { HydrateClient } from "~/trpc/server";
 import Link from "next/link";
 import Image from "next/image";
 import { AspectRatio } from "~/components/ui/aspect-ratio";
+import Footer from "./components/footer";
 
 export default async function HomePage() {
   return (
@@ -157,76 +158,7 @@ export default async function HomePage() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t bg-background">
-          <div className="mx-auto max-w-6xl px-4 py-8 md:px-20">
-            <div className="grid gap-8 md:grid-cols-3">
-              <div>
-                <h3 className="text-lg font-semibold">HIMAFI ITB</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Gedung Fisika, Jl. Ganesha No. 10, Bandung
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">Tautan</h3>
-                <ul className="mt-2 space-y-1 text-sm">
-                  <li>
-                    <Link
-                      href="/about"
-                      className="text-muted-foreground hover:text-primary"
-                    >
-                      Tentang
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/posts"
-                      className="text-muted-foreground hover:text-primary"
-                    >
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/contact"
-                      className="text-muted-foreground hover:text-primary"
-                    >
-                      Kontak
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">Media Sosial</h3>
-                <div className="mt-2 flex space-x-4">
-                  <Link
-                    href="#"
-                    className="text-muted-foreground hover:text-primary"
-                  >
-                    {/* Placeholder for social icon */}
-                    <span>IG</span>
-                  </Link>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground hover:text-primary"
-                  >
-                    {/* Placeholder for social icon */}
-                    <span>TW</span>
-                  </Link>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground hover:text-primary"
-                  >
-                    {/* Placeholder for social icon */}
-                    <span>LN</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 border-t pt-4 text-center text-sm text-muted-foreground">
-              © {new Date().getFullYear()} HIMAFI ITB. All rights reserved.
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </HydrateClient>
   );
