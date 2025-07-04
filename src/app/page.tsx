@@ -20,7 +20,7 @@ export default async function HomePage() {
           <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-6xl">
             Keluarga Mahasiswa Islam
             <br />
-            (GAMAIS) ITB
+            (GAMAIS) ITBH
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
             Wadah aspirasi dan pengembangan diri bagi mahasiswa Fisika ITB.
