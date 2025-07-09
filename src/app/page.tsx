@@ -10,6 +10,7 @@ import { HydrateClient } from "~/trpc/server";
 import Link from "next/link";
 import Image from "next/image";
 import { AspectRatio } from "~/components/ui/aspect-ratio";
+import { FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 export default async function HomePage() {
   return (
@@ -199,25 +200,24 @@ export default async function HomePage() {
                 <h3 className="text-lg font-semibold">Media Sosial</h3>
                 <div className="mt-2 flex space-x-4">
                   <Link
-                    href="#"
-                    className="text-muted-foreground hover:text-primary"
+                    href="https://www.instagram.com/himafi.itb"
+                    className="text-muted-foreground transition-colors hover:text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    {/* Placeholder for social icon */}
-                    <span>IG</span>
+                    <FaInstagram className="h-5 w-5" />
                   </Link>
                   <Link
-                    href="#"
-                    className="text-muted-foreground hover:text-primary"
+                    href="https://x.com/HIMAFI_ITB"
+                    className="text-muted-foreground transition-colors hover:text-primary"
                   >
-                    {/* Placeholder for social icon */}
-                    <span>TW</span>
+                    <FaTwitter className="h-5 w-5" />
                   </Link>
                   <Link
-                    href="#"
-                    className="text-muted-foreground hover:text-primary"
+                    href="https://www.linkedin.com/company/himafiitb/"
+                    className="text-muted-foreground transition-colors hover:text-primary"
                   >
-                    {/* Placeholder for social icon */}
-                    <span>LN</span>
+                    <FaLinkedin className="h-5 w-5" />
                   </Link>
                 </div>
               </div>
