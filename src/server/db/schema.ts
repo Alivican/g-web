@@ -20,6 +20,12 @@ import { type AdapterAccount } from "next-auth/adapters";
  */
 export const createTable = pgTableCreator((name) => `cnb-himafi_${name}`);
 
+export const links = createTable("links", {
+  id: serial("id").primaryKey(),
+  slug: varchar("slug", { length: 256 }).notNull().unique(),
+  url: text("url").notNull(),
+});
+
 export const images = createTable("image", {
   id: serial("id").primaryKey(),
   userId: varchar("user_id", { length: 256 })
