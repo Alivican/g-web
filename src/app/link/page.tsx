@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
-import { QRCodeSVG } from "qrcode.react";
+// 1. Import QRCodeCanvas instead of QRCodeSVG
+import { QRCodeCanvas } from "qrcode.react";
+// 2. Import the Download icon
+import { Download } from "lucide-react";
 import { api } from "~/trpc/react";
 import {
   Card,
@@ -72,6 +75,24 @@ export default function CreateLinkPage() {
     setExistingUrl(null);
   };
 
+  // 3. Add a handler to download the QR code canvas as a PNG
+  const handleDownload = () => {
+    const canvas = document.getElementById(
+      "qr-code-canvas",
+    ) as HTMLCanvasElement;
+    if (canvas && finalLink) {
+      const pngUrl = canvas
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pngUrl;
+      downloadLink.download = `${finalLink.slug}-qr.png`; // e.g., "rickroll-qr.png"
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    }
+  };
+
   return (
     <>
       <div className="container mx-auto max-w-lg p-4">
@@ -136,11 +157,18 @@ export default function CreateLinkPage() {
                 </p>
               </AlertDescription>
             </div>
-            <div className="ml-auto flex-shrink-0 rounded-lg bg-white p-2">
-              <QRCodeSVG
-                value={`https://link.himafiitb.com/${finalLink.slug}`}
-                size={80}
-              />
+            <div className="ml-auto flex flex-col items-center gap-2 pt-4 sm:pt-0">
+              <div className="flex-shrink-0 rounded-lg bg-white p-2">
+                <QRCodeCanvas
+                  id="qr-code-canvas" // Add an ID for selection
+                  value={`https://link.himafiitb.com/${finalLink.slug}`}
+                  size={80}
+                />
+              </div>
+              <Button onClick={handleDownload} variant="outline" size="sm">
+                <Download className="mr-2 h-4 w-4" />
+                Download
+              </Button>
             </div>
           </Alert>
         )}
