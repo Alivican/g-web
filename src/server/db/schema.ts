@@ -1,7 +1,9 @@
 import { relations, sql } from "drizzle-orm";
 import {
+  boolean,
   index,
   integer,
+  pgEnum,
   pgTableCreator,
   primaryKey,
   serial,
@@ -19,6 +21,9 @@ import { type AdapterAccount } from "next-auth/adapters";
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
 export const createTable = pgTableCreator((name) => `cnb-himafi_${name}`);
+
+// Define user roles enum
+export const userRoleEnum = pgEnum("user_role", ["user", "member", "admin"]);
 
 export const links = createTable("links", {
   id: serial("id").primaryKey(),
@@ -43,6 +48,29 @@ export const images = createTable("image", {
   ),
 });
 
+export const posts = createTable(
+  "post",
+  {
+    id: serial("id").primaryKey(),
+    title: varchar("title", { length: 256 }).notNull(),
+    content: text("content").notNull(),
+    type: varchar("type", { length: 50 }).notNull().default("post"), // "post" or "blog"
+    published: boolean("published").notNull().default(false), // false = draft, true = published
+    authorId: varchar("author_id", { length: 255 })
+      .notNull()
+      .references(() => users.id),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
+      () => new Date(),
+    ),
+  },
+  (post) => ({
+    authorIdIdx: index("post_author_id_idx").on(post.authorId),
+  }),
+);
+
 export const users = createTable("user", {
   id: varchar("id", { length: 255 })
     .notNull()
@@ -55,10 +83,16 @@ export const users = createTable("user", {
     withTimezone: true,
   }).default(sql`CURRENT_TIMESTAMP`),
   image: varchar("image", { length: 255 }),
+  role: userRoleEnum("role").notNull().default("user"),
 });
 
 export const usersRelations = relations(users, ({ many }) => ({
   accounts: many(accounts),
+  posts: many(posts),
+}));
+
+export const postsRelations = relations(posts, ({ one }) => ({
+  author: one(users, { fields: [posts.authorId], references: [users.id] }),
 }));
 
 export const accounts = createTable(

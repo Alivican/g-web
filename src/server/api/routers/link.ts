@@ -1,12 +1,12 @@
 import { z } from "zod";
 
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, memberProcedure } from "~/server/api/trpc";
 import { links } from "~/server/db/schema";
 import { db } from "~/server/db";
 import { eq } from "drizzle-orm";
 
 export const linkRouter = createTRPCRouter({
-  create: protectedProcedure
+  create: memberProcedure
     .input(
       z.object({
         slug: z.string().min(1),

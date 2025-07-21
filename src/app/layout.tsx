@@ -14,6 +14,7 @@ import { Toaster } from "~/components/ui/sonner";
 import { TopNav } from "~/components/topnav";
 import { api } from "~/trpc/server";
 import { ThemeProvider } from "~/components/theme-provider";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "GAMAIS ITB",
@@ -47,10 +48,12 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TRPCReactProvider>
-            <TopNav initialSession={session} />
-            {children}
-          </TRPCReactProvider>
+          <SessionProvider>
+            <TRPCReactProvider>
+              <TopNav initialSession={session} />
+              {children}
+            </TRPCReactProvider>
+          </SessionProvider>
           <Toaster richColors />
         </ThemeProvider>
       </body>

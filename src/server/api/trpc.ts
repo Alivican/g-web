@@ -131,3 +131,31 @@ export const protectedProcedure = t.procedure
       },
     });
   });
+
+/**
+ * Member procedure
+ *
+ * Only accessible to users with 'member' or 'admin' role
+ */
+export const memberProcedure = protectedProcedure.use(({ ctx, next }) => {
+  if (!["member", "admin"].includes(ctx.session.user.role)) {
+    throw new TRPCError({ code: "FORBIDDEN", message: "Member role required" });
+  }
+  return next({
+    ctx,
+  });
+});
+
+/**
+ * Admin procedure
+ *
+ * Only accessible to users with 'admin' role
+ */
+export const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
+  if (ctx.session.user.role !== "admin") {
+    throw new TRPCError({ code: "FORBIDDEN", message: "Admin role required" });
+  }
+  return next({
+    ctx,
+  });
+});

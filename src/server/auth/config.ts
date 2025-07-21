@@ -20,15 +20,15 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       id: string;
+      role: "user" | "member" | "admin";
       // ...other properties
-      // role: UserRole;
     } & DefaultSession["user"];
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+    role: "user" | "member" | "admin";
+    // ...other properties
+  }
 }
 
 /**
@@ -57,12 +57,18 @@ export const authConfig = {
     verificationTokensTable: verificationTokens,
   }),
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    session: ({ session, user }) => {
+      const userWithRole = user as typeof user & {
+        role?: "user" | "member" | "admin";
+      };
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: user.id,
+          role: userWithRole.role ?? "user",
+        },
+      };
+    },
   },
 } satisfies NextAuthConfig;
