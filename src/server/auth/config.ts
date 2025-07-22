@@ -51,7 +51,8 @@ export const authConfig = {
     }),
   ],
   pages: {
-    signIn: "/auth/signin", // Option 1: Custom page (current)
+    signIn: "/auth/signin", // Custom sign-in page
+    signOut: "/auth/signout", // Custom sign-out page
     // signIn: "/api/auth/signin", // Option 2 & 3: Use default NextAuth page
   },
 

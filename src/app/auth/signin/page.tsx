@@ -29,20 +29,17 @@ export default function SignInPage() {
   }, []);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20"></div>
-
-      <div className="relative z-10 w-full max-w-md px-4">
-        <Card className="border-gray-700 bg-gray-800/80 shadow-xl backdrop-blur-sm">
+    <div className="flex h-[calc(100vh-5rem)] items-center justify-center bg-gradient-to-b from-primary/10 to-transparent text-center">
+      <div className="w-full max-w-md px-4">
+        <Card className="shadow-xl">
           <CardHeader className="text-center">
             <div className="mx-auto mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600">
               <FaLock className="text-2xl text-white" />
             </div>
-            <CardTitle className="text-2xl font-bold text-white">
+            <CardTitle className="text-2xl font-bold">
               Masuk ke HIMAFI ITB
             </CardTitle>
-            <CardDescription className="text-gray-400">
+            <CardDescription>
               Silakan masuk untuk mengakses platform HIMAFI ITB
             </CardDescription>
           </CardHeader>
