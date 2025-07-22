@@ -2,8 +2,8 @@
 import { useState } from "react";
 // 1. Import QRCodeCanvas instead of QRCodeSVG
 import { QRCodeCanvas } from "qrcode.react";
-// 2. Import the Download icon
-import { Download } from "lucide-react";
+// 2. Import the Download icon and Info icon
+import { Download, Info } from "lucide-react";
 import { api } from "~/trpc/react";
 import {
   Card,
@@ -22,6 +22,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "~/components/ui/dialog";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "~/components/ui/popover";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 
 type LinkData = { slug: string; url: string };
@@ -116,9 +121,31 @@ export default function CreateLinkPage() {
               />
             </CardContent>
             <CardContent>
-              <label htmlFor="slug" className="block font-medium">
-                Custom Slug
-              </label>
+              <div className="flex items-center gap-2">
+                <label htmlFor="slug" className="block font-medium">
+                  Custom Slug
+                </label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full bg-muted text-muted-foreground hover:bg-muted/80">
+                      <Info className="h-3 w-3" />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80">
+                    <div className="space-y-2">
+                      <h4 className="font-medium leading-none">Custom Slug</h4>
+                      <p className="text-justify text-sm text-muted-foreground">
+                        Custom slug adalah bagian akhir dari link yang
+                        ditentukan sendiri, agar link menjadi lebih pendek dan
+                        mudah diingat.
+                        <br />
+                        Misalnya: &quot;rickroll&quot; akan menghasilkan
+                        link.himafiitb.com/rickroll
+                      </p>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
               <Input
                 id="slug"
                 type="text"
