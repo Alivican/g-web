@@ -1,27 +1,48 @@
-import { type NextRequest, NextResponse } from "next/server";
+// middleware.ts
+
+import { NextResponse, type NextRequest } from "next/server";
+import type { inferRouterOutputs } from "@trpc/server";
+import type { AppRouter } from "~/server/api/root";
+
+// Define the type for the session object
+type SessionOutput =
+  inferRouterOutputs<AppRouter>["authorization"]["currentSession"];
 
 export async function middleware(req: NextRequest) {
-  const url = req.nextUrl;
-  const hostname = url.hostname;
+  const { pathname } = req.nextUrl;
 
-  // Check if the subdomain is 'link'
-  console.log("Request received for hostname:", hostname);
-  if (hostname.startsWith("link.")) {
-    console.log("Subdomain 'link' detected, processing request...");
-    const { pathname } = url;
+  const res = await fetch(`${req.nextUrl.origin}/api/authSSR`, {
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: req.headers.get("cookie") ?? "", // Forward the cookie
+    },
+  });
 
-    // Exclude known paths from the rewrite logic
-    if (
-      pathname.startsWith("/api") ||
-      pathname.startsWith("/_next") ||
-      pathname.includes(".") // Exclude files with extensions (e.g., favicon.ico, images)
-    ) {
-      return NextResponse.next();
+  // Check if the fetch was successful before parsing JSON. Explicitly type the session variable here
+  const session: SessionOutput = res.ok ? await res.json() : null;
+
+  // Helper function for redirection
+  const redirectTo = (path: string) =>
+    NextResponse.redirect(new URL(path, req.url));
+
+  // Protect admin routes
+  if (pathname.startsWith("/admin")) {
+    if (!session) {
+      return redirectTo("/api/auth/signin");
     }
+    if (session.user?.role !== "admin") {
+      return redirectTo("/"); // Not an admin
+    }
+  }
 
-    if (pathname !== "/") {
-      // Rewrite the path to a specific API route for handling redirects
-      return NextResponse.rewrite(new URL(`/api/redirect${pathname}`, req.url));
+  // Protect link shortener page
+  if (pathname.startsWith("/link")) {
+    if (!session) {
+      return redirectTo("/api/auth/signin");
+    }
+    const userRole = session.user?.role;
+    if (userRole !== "member" && userRole !== "admin") {
+      return redirectTo("/"); // Not a member or admin
     }
   }
 
@@ -29,6 +50,6 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  // The matcher is simplified as the logic is now handled inside the middleware.
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  // Match all routes except for static assets and the auth API
+  matcher: ["/((?!api/auth|_next/static|_next/image|favicon.ico).*)"],
 };
