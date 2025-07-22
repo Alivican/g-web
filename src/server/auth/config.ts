@@ -50,6 +50,19 @@ export const authConfig = {
       },
     }),
   ],
+  pages: {
+    signIn: "/auth/signin", // Option 1: Custom page (current)
+    // signIn: "/api/auth/signin", // Option 2 & 3: Use default NextAuth page
+  },
+
+  // Option 2 & 3: Theme customization for default NextAuth page
+  // theme: {
+  //   colorScheme: "dark",
+  //   brandColor: "#1976d2", // HIMAFI blue
+  //   logo: "/himafi-logo.png",
+  //   buttonText: "#ffffff"
+  // },
+
   adapter: DrizzleAdapter(db, {
     usersTable: users,
     accountsTable: accounts,
