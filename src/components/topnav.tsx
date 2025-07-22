@@ -10,15 +10,10 @@ import { useRouter } from "next/navigation";
 import * as React from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Menu } from "lucide-react";
+import { useSession } from "next-auth/react";
 
-export function TopNav({
-  initialSession,
-}: {
-  initialSession: RouterOutputs["authorization"]["currentSession"];
-}) {
-  const session = api.authorization.currentSession.useQuery(undefined, {
-    initialData: initialSession,
-  });
+export function TopNav() {
+  const { data: session } = useSession();
   const router = useRouter();
   const [searchQuery, setSearchQuery] = React.useState("");
 
@@ -62,13 +57,13 @@ export function TopNav({
 
           {/* User Info */}
           <div className="flex items-center gap-4">
-            {session.data ? (
+            {session ? (
               <div className="flex items-center gap-4">
                 <span className="hidden text-sm font-medium md:block">
-                  {session.data.user.name}
+                  {session.user.name}
                 </span>
                 <img
-                  src={session.data.user.image ?? ""}
+                  src={session.user.image ?? ""}
                   alt="User avatar"
                   className="h-8 w-8 rounded-full"
                 />
