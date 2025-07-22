@@ -17,7 +17,7 @@ export const authorizationRouter = createTRPCRouter({
     return {
       role: userRole,
       canCreatePosts: ["member", "admin"].includes(userRole),
-      canCreateLinks: userRole === "admin",
+      canCreateLinks: ["member", "admin"].includes(userRole),
       canManageUsers: userRole === "admin",
       isAdmin: userRole === "admin",
       isMember: ["member", "admin"].includes(userRole),
