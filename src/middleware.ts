@@ -8,6 +8,12 @@ type SessionOutput =
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  console.log("Middleware triggered for path:", pathname);
+
+  if (pathname.startsWith("/wp")) {
+    console.log("Blocking WordPress path:", pathname);
+    return new Response("unauthorized", { status: 401 });
+  }
 
   const res = await fetch(
     `${req.nextUrl.origin}/api/trpc/authorization.currentSession`,
@@ -63,6 +69,9 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
+  // Apply middleware to specific paths
+  matcher: ["/wp:path*", "/admin", "/link"],
+
   // Match all routes except for static assets and the auth API
-  matcher: ["/((?!api/auth|api/trpc|_next/static|_next/image|favicon.ico).*)"],
+  // matcher: ["/((?!api/auth|api/trpc|_next/static|_next/image|favicon.ico).*)"],
 };
