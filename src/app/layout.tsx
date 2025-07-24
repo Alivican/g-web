@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const session = await api.authorization.currentSession();
+  // const session = await api.authorization.currentSession();
   return (
     <html
       lang="en"
@@ -48,7 +48,8 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SessionProvider session={session}>
+          {/* <SessionProvider session={session}> */}
+          <SessionProvider>
             <TRPCReactProvider>
               <TopNav />
               {children}
