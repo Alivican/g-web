@@ -12,7 +12,7 @@ export async function middleware(req: NextRequest) {
 
   // Block any path containing "wp" immediately
   if (pathname.includes("wp")) {
-    return new Response("Unauthorized", { status: 401 });
+    return new Response("Forbidden", { status: 403 });
   }
 
   const res = await fetch(
