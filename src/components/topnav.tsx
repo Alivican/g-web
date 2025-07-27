@@ -117,18 +117,12 @@ export function TopNav() {
                   <Link href="/blog">Blog</Link>
                   <Link href="/faq">FAQ</Link>
                   {["admin", "member"].includes(role) && (
-                    <Link
-                      href="/link"
-                      className="font-semibold text-destructive"
-                    >
+                    <Link href="/link" className="font-semibold text-primary">
                       Link shortener
                     </Link>
                   )}
                   {["admin"].includes(role) && (
-                    <Link
-                      href="/admin"
-                      className="font-semibold text-destructive"
-                    >
+                    <Link href="/admin" className="font-semibold text-primary">
                       Admin
                     </Link>
                   )}
