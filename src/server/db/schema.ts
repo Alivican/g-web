@@ -69,7 +69,7 @@ export const posts = createTable(
     id: serial("id").primaryKey(),
     title: varchar("title", { length: 256 }).notNull(),
     content: text("content").notNull(),
-    type: varchar("type", { length: 50 }).notNull().default("post"), // "post" or "blog"
+    type: varchar("type", { length: 50 }).notNull().default("news"), // "news" or "blog"
     published: boolean("published").notNull().default(false), // false = draft, true = published
     authorId: varchar("author_id", { length: 255 })
       .notNull()

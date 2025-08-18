@@ -57,9 +57,20 @@ export function TopNav() {
           <Link href="/blog">Blog</Link>
           <Link href="/faq">FAQ</Link>
           {["admin", "member"].includes(role) && (
-            <Link href="/link" className="font-semibold text-primary">
-              Link shortener
-            </Link>
+            <>
+              <Link href="/editor" className="font-semibold text-primary">
+                New Article
+              </Link>
+              <Link
+                href="/editor/manage"
+                className="font-semibold text-primary"
+              >
+                Manage Posts
+              </Link>
+              <Link href="/link" className="font-semibold text-primary">
+                Link shortener
+              </Link>
+            </>
           )}
           {["admin"].includes(role) && (
             <Link href="/admin" className="font-semibold text-primary">
@@ -122,9 +133,20 @@ export function TopNav() {
                 <Link href="/blog">Blog</Link>
                 <Link href="/faq">FAQ</Link>
                 {["admin", "member"].includes(role) && (
-                  <Link href="/link" className="font-semibold text-primary">
-                    Link shortener
-                  </Link>
+                  <>
+                    <Link href="/editor" className="font-semibold text-primary">
+                      New Article
+                    </Link>
+                    <Link
+                      href="/editor/manage"
+                      className="font-semibold text-primary"
+                    >
+                      Manage Posts
+                    </Link>
+                    <Link href="/link" className="font-semibold text-primary">
+                      Link shortener
+                    </Link>
+                  </>
                 )}
                 {["admin"].includes(role) && (
                   <Link href="/admin" className="font-semibold text-primary">
