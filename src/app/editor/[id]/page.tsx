@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { api } from "~/trpc/react";
-import { QuillEditor } from "../_components/quill-editor";
+import dynamic from "next/dynamic";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
@@ -12,6 +12,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Switch } from "~/components/ui/switch";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import { toast } from "sonner";
+
+// Dynamically import the QuillEditor to avoid SSR issues
+const QuillEditor = dynamic(
+  () =>
+    import("../_components/quill-editor").then((mod) => ({
+      default: mod.QuillEditor,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-96 animate-pulse rounded-md bg-gray-100" />
+    ),
+  },
+);
 
 interface EditPostPageProps {
   params: {

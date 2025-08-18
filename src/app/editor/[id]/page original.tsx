@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { api } from "~/trpc/react";
-import dynamic from "next/dynamic";
+import { QuillEditor } from "../_components/quill-editor";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
@@ -13,48 +13,67 @@ import { Switch } from "~/components/ui/switch";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import { toast } from "sonner";
 
-// Dynamically import the QuillEditor to avoid SSR issues
-const QuillEditor = dynamic(
-  () =>
-    import("./_components/quill-editor").then((mod) => ({
-      default: mod.QuillEditor,
-    })),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-96 animate-pulse rounded-md bg-gray-100" />
-    ),
-  },
-);
+interface EditPostPageProps {
+  params: {
+    id: string;
+  };
+}
 
-export default function EditorPage() {
+export default function EditPostPage({ params }: EditPostPageProps) {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const postId = parseInt(params.id);
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [type, setType] = useState<"news" | "blog">("news");
   const [published, setPublished] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  const createPost = api.post.create.useMutation({
+  // Fetch the existing post
+  const {
+    data: post,
+    isLoading: isLoadingPost,
+    error,
+  } = api.post.getById.useQuery(
+    { id: postId },
+    {
+      enabled: !!postId && !isNaN(postId),
+      retry: false,
+    },
+  );
+
+  const updatePost = api.post.update.useMutation({
     onSuccess: (data) => {
-      toast.success("Article saved successfully!");
+      toast.success("Article updated successfully!");
       if (data?.id) {
         router.push(`/${type}/${data.id}`);
       } else {
-        router.push("/");
+        router.push("/editor/manage");
       }
     },
     onError: (error) => {
-      toast.error("Failed to save article: " + error.message);
+      toast.error("Failed to update article: " + error.message);
     },
     onSettled: () => {
       setIsLoading(false);
     },
   });
 
+  // Initialize form with post data
+  useEffect(() => {
+    if (post && !isInitialized) {
+      setTitle(post.title);
+      setContent(post.content);
+      setType(post.type as "news" | "blog");
+      setPublished(post.published);
+      setIsInitialized(true);
+    }
+  }, [post, isInitialized]);
+
   // Check if user is authenticated and has member/admin role
-  if (status === "loading") {
+  if (status === "loading" || isLoadingPost) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <div className="text-lg">Loading...</div>
@@ -75,9 +94,55 @@ export default function EditorPage() {
             <CardTitle>Access Denied</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>You need member or admin privileges to access the editor.</p>
+            <p>You need member or admin privileges to edit posts.</p>
             <Button onClick={() => router.push("/")} className="mt-4 w-full">
               Go Home
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  if (error || !post) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Card className="w-96">
+          <CardHeader>
+            <CardTitle>Post Not Found</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              The post you're trying to edit doesn't exist or you don't have
+              permission to edit it.
+            </p>
+            <Button
+              onClick={() => router.push("/editor/manage")}
+              className="mt-4 w-full"
+            >
+              Back to Posts
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  // Check if user can edit this post (author or admin)
+  if (session.user.role !== "admin" && post.author?.id !== session.user.id) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Card className="w-96">
+          <CardHeader>
+            <CardTitle>Access Denied</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>You can only edit your own posts.</p>
+            <Button
+              onClick={() => router.push("/editor/manage")}
+              className="mt-4 w-full"
+            >
+              Back to Posts
             </Button>
           </CardContent>
         </Card>
@@ -97,7 +162,8 @@ export default function EditorPage() {
     }
 
     setIsLoading(true);
-    createPost.mutate({
+    updatePost.mutate({
+      id: postId,
       title: title.trim(),
       content,
       type,
@@ -112,9 +178,9 @@ export default function EditorPage() {
   return (
     <div className="container mx-auto max-w-4xl p-6">
       <div className="mb-6">
-        <h1 className="text-3xl font-bold">Article Editor</h1>
+        <h1 className="text-3xl font-bold">Edit Article</h1>
         <p className="text-muted-foreground">
-          Create and publish news articles or blog posts
+          Update your article content and settings
         </p>
       </div>
 
@@ -192,13 +258,13 @@ export default function EditorPage() {
         <div className="flex justify-end space-x-4">
           <Button
             variant="outline"
-            onClick={() => router.back()}
+            onClick={() => router.push("/editor/manage")}
             disabled={isLoading}
           >
             Cancel
           </Button>
           <Button onClick={handleSave} disabled={isLoading}>
-            {isLoading ? "Saving..." : "Save Article"}
+            {isLoading ? "Updating..." : "Update Article"}
           </Button>
         </div>
       </div>
