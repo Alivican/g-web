@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import Quill from "quill";
 import "quill/dist/quill.snow.css";
 import { generateReactHelpers } from "@uploadthing/react";
@@ -25,18 +25,15 @@ export function QuillEditor({
 }: QuillEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null);
   const quillRef = useRef<Quill | null>(null);
+  const onChangeRef = useRef(onChange);
+  const valueRef = useRef(value);
   const { startUpload } = useUploadThing("imageUploader");
 
-  // Memoize the text change handler to avoid dependency issues
-  const handleTextChange = useCallback(() => {
-    if (quillRef.current) {
-      const html = quillRef.current.root.innerHTML;
-      // Only call onChange if the content has actually changed
-      if (html !== value) {
-        onChange(html);
-      }
-    }
-  }, [value, onChange]);
+  // Keep onChange and value refs up to date
+  useEffect(() => {
+    onChangeRef.current = onChange;
+    valueRef.current = value;
+  }, [onChange, value]);
 
   useEffect(() => {
     if (!editorRef.current) return;
@@ -92,7 +89,7 @@ export function QuillEditor({
       modules: {
         toolbar: {
           container: [
-            [{ header: [1, false] }],
+            [{ header: [1, 2, 3, false] }],
             [{ size: ["small", false, "large", "huge"] }],
             ["bold", "italic", "underline", "strike"],
             [{ color: [] }, { background: [] }],
@@ -125,6 +122,8 @@ export function QuillEditor({
         "background",
         "script",
         "list",
+        "bullet",
+        "ordered",
         "indent",
         "direction",
         "align",
@@ -138,16 +137,16 @@ export function QuillEditor({
     quillRef.current = quill;
 
     // Set initial content if provided
-    if (value) {
-      quill.clipboard.dangerouslyPasteHTML(value);
+    if (valueRef.current) {
+      quill.clipboard.dangerouslyPasteHTML(valueRef.current);
     }
 
     // Listen for text changes
     const handleTextChange = () => {
       const html = quill.root.innerHTML;
       // Only call onChange if the content has actually changed
-      if (html !== value) {
-        onChange(html);
+      if (html !== valueRef.current) {
+        onChangeRef.current(html);
       }
     };
 
@@ -159,7 +158,7 @@ export function QuillEditor({
         quillRef.current.off("text-change", handleTextChange);
       }
     };
-  }, []);
+  }, [theme, placeholder, startUpload]); // Only depend on configuration values
 
   // Update content when value prop changes
   useEffect(() => {
