@@ -48,6 +48,21 @@ export const images = createTable("image", {
   ),
 });
 
+export const users = createTable("user", {
+  id: varchar("id", { length: 255 })
+    .notNull()
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  name: varchar("name", { length: 255 }),
+  email: varchar("email", { length: 255 }).notNull(),
+  emailVerified: timestamp("email_verified", {
+    mode: "date",
+    withTimezone: true,
+  }).default(sql`CURRENT_TIMESTAMP`),
+  image: varchar("image", { length: 255 }),
+  role: userRoleEnum("role").notNull().default("user"),
+});
+
 export const posts = createTable(
   "post",
   {
@@ -70,21 +85,6 @@ export const posts = createTable(
     authorIdIdx: index("post_author_id_idx").on(post.authorId),
   }),
 );
-
-export const users = createTable("user", {
-  id: varchar("id", { length: 255 })
-    .notNull()
-    .primaryKey()
-    .$defaultFn(() => crypto.randomUUID()),
-  name: varchar("name", { length: 255 }),
-  email: varchar("email", { length: 255 }).notNull(),
-  emailVerified: timestamp("email_verified", {
-    mode: "date",
-    withTimezone: true,
-  }).default(sql`CURRENT_TIMESTAMP`),
-  image: varchar("image", { length: 255 }),
-  role: userRoleEnum("role").notNull().default("user"),
-});
 
 export const usersRelations = relations(users, ({ many }) => ({
   accounts: many(accounts),

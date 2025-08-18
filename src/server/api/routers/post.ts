@@ -27,6 +27,25 @@ export const postRouter = createTRPCRouter({
     });
   }),
 
+  getByType: publicProcedure
+    .input(z.object({ type: z.enum(["news", "blog"]) }))
+    .query(async ({ ctx, input }) => {
+      return ctx.db.query.posts.findMany({
+        where: (model, { eq, and }) =>
+          and(eq(model.type, input.type), eq(model.published, true)),
+        orderBy: [desc(posts.createdAt)],
+        with: {
+          author: {
+            columns: {
+              id: true,
+              name: true,
+              image: true,
+            },
+          },
+        },
+      });
+    }),
+
   getById: publicProcedure
     .input(z.object({ id: z.number() }))
     .query(async ({ ctx, input }) => {
@@ -51,7 +70,7 @@ export const postRouter = createTRPCRouter({
       z.object({
         title: z.string().min(1),
         content: z.string().min(1),
-        type: z.enum(["post", "blog"]).default("post"),
+        type: z.enum(["news", "blog"]).default("news"),
         published: z.boolean().default(false),
       }),
     )
@@ -75,7 +94,7 @@ export const postRouter = createTRPCRouter({
         id: z.number(),
         title: z.string().min(1).optional(),
         content: z.string().min(1).optional(),
-        type: z.enum(["post", "blog"]).optional(),
+        type: z.enum(["news", "blog"]).optional(),
         published: z.boolean().optional(),
       }),
     )
