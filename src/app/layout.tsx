@@ -16,6 +16,8 @@ import { api } from "~/trpc/server";
 import { ThemeProvider } from "~/components/theme-provider";
 import { SessionProvider } from "next-auth/react";
 
+import { auth } from "~/server/auth";
+
 export const metadata: Metadata = {
   title: "GAMAIS ITB",
   description: "Keluarga Mahasiswa Islam (GAMAIS) Institut Teknologi Bandung",
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  // const session = await api.authorization.currentSession();
+  const session = await auth();
   return (
     <html
       lang="en"
@@ -48,8 +50,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <SessionProvider session={session}> */}
-          <SessionProvider>
+          <SessionProvider session={session}>
             <TRPCReactProvider>
               <TopNav />
               {children}
