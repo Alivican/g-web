@@ -540,68 +540,8 @@ export default function AboutPage() {
                 </div>
               </div>
             </CardHeader>
-            <CardContent className="p-8">
-              <div className="space-y-8">
-                {/* Top Leadership */}
-                <div className="space-y-4 text-center">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary">
-                    <Crown className="h-8 w-8 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold">
-                      {organogram.president.name}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {organogram.president.person}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-4 text-center">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/80">
-                    <Shield className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">
-                      {organogram.vicePresident.name}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {organogram.vicePresident.person}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Departments */}
-                <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-                  {organogram.departments.map((dept, index) => (
-                    <Card key={index} className="bg-muted/50">
-                      <CardContent className="p-4">
-                        <div className="space-y-3 text-center">
-                          <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                            <User className="h-5 w-5 text-primary-foreground" />
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-bold">{dept.name}</h4>
-                            <p className="text-xs text-muted-foreground">
-                              {dept.head}
-                            </p>
-                          </div>
-                          <div className="space-y-1">
-                            {dept.divisions.map((division, divIndex) => (
-                              <div
-                                key={divIndex}
-                                className="rounded bg-background px-2 py-1 text-xs"
-                              >
-                                {division}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
+            <CardContent className="p-0">
+              <img src="organogram-dark.png" alt="Organogram" />
             </CardContent>
           </Card>
         </div>

@@ -109,10 +109,10 @@ export default async function HomePage() {
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-4 text-3xl font-bold">Tentang Kami</h2>
             <p className="text-muted-foreground">
-              HIMAFI ITB adalah organisasi kemahasiswaan di lingkungan Program
-              Studi Fisika, Institut Teknologi Bandung. Berdiri sejak tahun
-              1956, kami berkomitmen untuk menjadi wadah bagi mahasiswa untuk
-              berkembang dalam bidang akademik, keprofesian, dan sosial.
+              HIMAFI ITB dibentuk untuk ikut membantu dan membina terbentuknya
+              sarjana fisika yang jujur, pandai, berharga diri, dan mempunyai
+              integritas terhadap bangsa dan negara Indonesia (AD/ART HIMAFI
+              ITB, 1981).
             </p>
             <Button className="mt-6" variant="outline" asChild>
               <Link href="/about">Pelajari Lebih Lanjut</Link>
@@ -130,8 +130,8 @@ export default async function HomePage() {
               <AccordionTrigger>Apa itu HIMAFI ITB?</AccordionTrigger>
               <AccordionContent>
                 HIMAFI ITB adalah Himpunan Mahasiswa Fisika di Institut
-                Teknologi Bandung, yang berfungsi sebagai wadah aspirasi dan
-                kegiatan mahasiswa Fisika.
+                Teknologi Bandung, yang berfungsi sebagai wadah belajar,
+                penyaluran aspirasi, dan kegiatan berdampak mahasiswa Fisika.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
