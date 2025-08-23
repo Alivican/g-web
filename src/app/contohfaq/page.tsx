@@ -30,100 +30,108 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useMemo } from "react";
 
-export default function Component() {
-  const faqCategories = [
-    {
-      title: "HIMAFI ITB",
-      icon: HelpCircle,
-      color: "from-blue-400 to-cyan-400",
-      bgColor: "bg-blue-900/20",
-      faqs: [
-        {
-          question: "Apa itu HIMAFI ITB?",
-          answer: "keluargahuu",
-        },
-        {
-          question: "Siapa saja yang dapat menjadi anggota HIMAFI ITB?",
-          answer:
-            "siapa saja jiwa malang yang berada di jurusan fisigma UI (universitas itb)",
-        },
-        {
-          question: "Apa saja kegiatan rutin HIMAFI ITB?",
-          answer: "mewing pekanan",
-        },
-      ],
-    },
-    {
-      title: "Keanggotaan & Partisipasi",
-      icon: CreditCard,
-      color: "from-emerald-400 to-teal-400",
-      bgColor: "bg-emerald-900/20",
-      faqs: [
-        {
-          question: "Bagaimana cara bergabung dengan kepengurusan HIMAFI IT?",
-          answer: "intellektuele schule dulu lur",
-        },
-        {
-          question: "Apa keuntungan menjadi bagian dari HIMAFI ITB?",
-          answer: "bisa bertemu tokoh tokoh chad fisika itb",
-        },
-        {
-          question: "Bagaimana cara mengetahui agenda HIMAFI ITB terbaru?",
-          answer: "tepukin mahasiswa jakob terdekat atau pantau medsos himafi",
-        },
-      ],
-    },
-    {
-      title: "Kegiatan Akademik & Non-Akademik",
-      icon: Settings,
-      color: "from-purple-400 to-pink-400",
-      bgColor: "bg-purple-900/20",
-      faqs: [
-        {
-          question:
-            "Apakah HIMAFI ITB menyelenggarakan kegiatan akademik seperti tutoring atau diskusi ilmiah?",
-          answer: "tubay on the rescue",
-        },
-        {
-          question: "Apa saja acara yang diadakan HIMAFI ITB?",
-          answer: "ayo ikut eureka",
-        },
-        {
-          question:
-            "Apakah HIMAFI ITB bekerja sama dengan himpunan atau institusi lain?",
-          answer: "p koleb",
-        },
-        {
-          question:
-            "Bagaimana saya bisa ikut serta dalam lomba atau seminar yang diadakan HIMAFI ITB?",
-          answer: "p daftar",
-        },
-      ],
-    },
-    {
-      title: "Administratif & Layanan",
-      icon: Zap,
-      color: "from-orange-400 to-red-400",
-      bgColor: "bg-orange-900/20",
-      faqs: [
-        {
-          question:
-            "Bagaimana cara meminjam barang atau ruangan melalui HIMAFI?",
-          answer: "ijin dulu yg penting",
-        },
-        {
-          question:
-            "Apakah HIMAFI menyediakan dokumen atau arsip kegiatan terdahulu?",
-          answer: "idk maybe",
-        },
-        {
-          question:
-            "Apakah HIMAFI menyediakan bantuan akademik atau advokasi mahasiswa?",
-          answer: "uhh yea iirc",
-        },
-      ],
-    },
-  ];
+export default function FAQPage() {
+  const faqCategories = useMemo(
+    () => [
+      {
+        title: "HIMAFI ITB",
+        icon: HelpCircle,
+        faqs: [
+          {
+            question: "Apa itu HIMAFI ITB?",
+            answer:
+              "HIMAFI ITB adalah Himpunan Mahasiswa Fisika Institut Teknologi Bandung, organisasi kemahasiswaan yang mewadahi seluruh mahasiswa Program Studi Fisika ITB sebagai keluarga besar.",
+          },
+          {
+            question: "Siapa saja yang dapat menjadi anggota HIMAFI ITB?",
+            answer:
+              "Semua mahasiswa aktif Program Studi Fisika ITB secara otomatis menjadi anggota HIMAFI ITB.",
+          },
+          {
+            question: "Apa saja kegiatan rutin HIMAFI ITB?",
+            answer:
+              "HIMAFI ITB mengadakan berbagai kegiatan rutin seperti tutorial akademik (TUBAY), workshop, seminar, dan kegiatan sosial untuk mempererat hubungan antar mahasiswa.",
+          },
+        ],
+      },
+      {
+        title: "Keanggotaan & Partisipasi",
+        icon: CreditCard,
+        faqs: [
+          {
+            question:
+              "Bagaimana cara bergabung dengan kepengurusan HIMAFI ITB?",
+            answer:
+              "Anda dapat bergabung melalui proses rekrutmen yang biasanya diadakan setiap tahun. Pantau pengumuman resmi di media sosial HIMAFI ITB.",
+          },
+          {
+            question: "Apa keuntungan menjadi bagian dari HIMAFI ITB?",
+            answer:
+              "Anda dapat bertemu dan belajar dari senior-senior berprestasi, mengembangkan soft skill melalui berbagai kegiatan, dan memperluas jaringan di bidang fisika.",
+          },
+          {
+            question: "Bagaimana cara mengetahui agenda HIMAFI ITB terbaru?",
+            answer:
+              "Ikuti media sosial resmi HIMAFI ITB atau hubungi mahasiswa senior terdekat untuk informasi terkini mengenai agenda dan kegiatan.",
+          },
+        ],
+      },
+      {
+        title: "Kegiatan Akademik & Non-Akademik",
+        icon: Settings,
+        faqs: [
+          {
+            question:
+              "Apakah HIMAFI ITB menyelenggarakan kegiatan akademik seperti tutoring atau diskusi ilmiah?",
+            answer:
+              "Ya, HIMAFI ITB menyelenggarakan program TUBAY (Tutorial Bayar) dan berbagai diskusi ilmiah untuk membantu mahasiswa dalam bidang akademik.",
+          },
+          {
+            question: "Apa saja acara yang diadakan HIMAFI ITB?",
+            answer:
+              "HIMAFI ITB mengadakan berbagai acara seperti EUREKA (event tahunan terbesar), workshop, seminar, kompetisi fisika, dan kegiatan sosial lainnya.",
+          },
+          {
+            question:
+              "Apakah HIMAFI ITB bekerja sama dengan himpunan atau institusi lain?",
+            answer:
+              "Ya, HIMAFI ITB aktif berkolaborasi dengan himpunan mahasiswa lain di ITB maupun institusi eksternal untuk berbagai kegiatan dan program.",
+          },
+          {
+            question:
+              "Bagaimana saya bisa ikut serta dalam lomba atau seminar yang diadakan HIMAFI ITB?",
+            answer:
+              "Informasi pendaftaran biasanya diumumkan melalui media sosial resmi HIMAFI ITB. Pantau terus untuk mendapatkan informasi terbaru.",
+          },
+        ],
+      },
+      {
+        title: "Administratif & Layanan",
+        icon: Zap,
+        faqs: [
+          {
+            question:
+              "Bagaimana cara meminjam barang atau ruangan melalui HIMAFI?",
+            answer:
+              "Hubungi pengurus HIMAFI ITB terkait dan ajukan permohonan peminjaman sesuai dengan prosedur yang berlaku.",
+          },
+          {
+            question:
+              "Apakah HIMAFI menyediakan dokumen atau arsip kegiatan terdahulu?",
+            answer:
+              "HIMAFI ITB menyimpan arsip kegiatan. Untuk mengakses dokumen tertentu, silakan hubungi bagian kesekretariatan.",
+          },
+          {
+            question:
+              "Apakah HIMAFI menyediakan bantuan akademik atau advokasi mahasiswa?",
+            answer:
+              "Ya, HIMAFI ITB menyediakan berbagai bentuk bantuan akademik dan dapat membantu dalam hal advokasi mahasiswa jika diperlukan.",
+          },
+        ],
+      },
+    ],
+    [],
+  );
 
   // Extract all questions for dynamic placeholder
   const allQuestions = faqCategories.flatMap((category) =>
@@ -162,7 +170,7 @@ export default function Component() {
         ),
       }))
       .filter((category) => category.faqs.length > 0);
-  }, [inputValue]);
+  }, [inputValue, faqCategories]);
 
   // Highlight matching text
   const highlightText = (text: string, searchTerm: string) => {
@@ -174,7 +182,7 @@ export default function Component() {
     // Use dangerouslySetInnerHTML to avoid React splitting issues
     const highlightedText = text.replace(
       regex,
-      '<mark class="bg-yellow-400/30 text-yellow-200 rounded">$1</mark>',
+      '<mark class="bg-primary/20 text-primary rounded">$1</mark>',
     );
 
     return <span dangerouslySetInnerHTML={{ __html: highlightedText }} />;
@@ -200,82 +208,73 @@ export default function Component() {
   const hasResults = filteredCategories.length > 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900">
-      {/* Header */}
-      <div className="relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20"></div>
-        <div className="absolute left-1/4 top-0 h-72 w-72 animate-pulse rounded-full bg-purple-500/20 opacity-30 mix-blend-multiply blur-xl filter"></div>
-        <div className="absolute right-1/4 top-0 h-72 w-72 animate-pulse rounded-full bg-cyan-500/20 opacity-30 mix-blend-multiply blur-xl filter delay-1000"></div>
+    <main className="bg-background text-foreground">
+      {/* Hero Section */}
+      <section className="flex h-[60vh] flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-transparent text-center">
+        <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary">
+          <HelpCircle className="h-8 w-8 text-primary-foreground" />
+        </div>
+        <h1 className="text-5xl font-bold tracking-tight md:text-6xl">
+          Frequently Asked Questions
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+          Masih bingung soal HIMAFI? Tenang, kami bantu jawab di sini!
+        </p>
 
-        <div className="container relative mx-auto px-4 py-16">
-          <div className="space-y-6 text-center">
-            <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600">
-              <HelpCircle className="h-8 w-8 text-white" />
-            </div>
-            <h1 className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-5xl font-bold tracking-tight text-transparent">
-              Frequently Asked Questions
-            </h1>
-            <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-300">
-              Masih bingung soal HIMAFI? Tenang, kami bantu jawab di sini!
-            </p>
-          </div>
-
-          {/* Search Bar */}
-          <div className="mx-auto mt-10 max-w-2xl">
+        {/* Search Bar */}
+        <div className="mx-auto mt-8 w-full max-w-2xl px-4">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
-              <div className="relative">
-                <Input
-                  value={inputValue}
-                  onChange={handleInputChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  placeholder={
-                    isFocused || inputValue ? "Ajukan pertanyaan..." : ""
-                  }
-                  className="h-12 border-gray-700 bg-gray-800/80 pl-12 pr-12 text-white shadow-lg backdrop-blur-sm transition-all duration-300 placeholder:text-gray-400 focus:border-blue-500 focus:shadow-xl"
-                />
-                {inputValue && (
-                  <button
-                    onClick={clearSearch}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 transform text-gray-400 transition-colors hover:text-gray-300"
+              <Input
+                value={inputValue}
+                onChange={handleInputChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                placeholder={
+                  isFocused || inputValue ? "Ajukan pertanyaan..." : ""
+                }
+                className="h-12 pl-12 pr-12"
+              />
+              {inputValue && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 transform text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+              {!isFocused && !inputValue && allQuestions.length > 0 && (
+                <div className="pointer-events-none absolute left-12 right-4 top-1/2 h-6 -translate-y-1/2 transform overflow-hidden">
+                  <div
+                    className="transition-transform duration-500 ease-in-out"
+                    style={{
+                      transform: `translateY(-${currentQuestionIndex * 24}px)`,
+                    }}
                   >
-                    <X className="h-4 w-4" />
-                  </button>
-                )}
-                {!isFocused && !inputValue && allQuestions.length > 0 && (
-                  <div className="pointer-events-none absolute left-12 right-4 top-1/2 h-6 -translate-y-1/2 transform overflow-hidden">
-                    <div
-                      className="transition-transform duration-500 ease-in-out"
-                      style={{
-                        transform: `translateY(-${currentQuestionIndex * 24}px)`,
-                      }}
-                    >
-                      {allQuestions.map((question, index) => (
-                        <div
-                          key={index}
-                          className="flex h-6 items-center overflow-hidden text-sm text-gray-500"
-                          style={{
-                            width: "calc(100% - 24px)",
-                            whiteSpace: "nowrap",
-                            textOverflow: "ellipsis",
-                          }}
-                        >
-                          {`Cari: "${question}"`}
-                        </div>
-                      ))}
-                    </div>
+                    {allQuestions.map((question, index) => (
+                      <div
+                        key={index}
+                        className="flex h-6 items-center overflow-hidden text-sm text-muted-foreground"
+                        style={{
+                          width: "calc(100% - 24px)",
+                          whiteSpace: "nowrap",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {`Cari: "${question}"`}
+                      </div>
+                    ))}
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
 
           {/* Search Results Summary */}
           {isSearching && (
-            <div className="mx-auto mt-4 max-w-2xl text-center">
-              <p className="text-sm text-gray-400">
+            <div className="mt-4 text-center">
+              <p className="text-sm text-muted-foreground">
                 {hasResults ? (
                   <>
                     Ditemukan{" "}
@@ -284,14 +283,14 @@ export default function Component() {
                       0,
                     )}{" "}
                     hasil untuk{" "}
-                    <span className="font-semibold text-white">
+                    <span className="font-semibold text-foreground">
                       &quot;{inputValue}&quot;
                     </span>
                   </>
                 ) : (
                   <>
                     Tidak ada hasil untuk{" "}
-                    <span className="font-semibold text-white">
+                    <span className="font-semibold text-foreground">
                       &quot;{inputValue}&quot;
                     </span>
                   </>
@@ -300,30 +299,24 @@ export default function Component() {
             </div>
           )}
         </div>
-      </div>
+      </section>
 
       {/* FAQ Content */}
-      <div className="container mx-auto px-4 py-16">
+      <section className="px-4 py-16 md:px-20">
         <div className="mx-auto max-w-5xl space-y-8">
           {!hasResults && isSearching ? (
-            <Card className="overflow-hidden border-0 border-gray-700 bg-gray-800/80 shadow-xl backdrop-blur-sm">
+            <Card>
               <CardContent className="p-12 text-center">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-700">
-                  <Search className="h-8 w-8 text-gray-400" />
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+                  <Search className="h-8 w-8 text-muted-foreground" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-white">
-                  Tidak ada hasil
-                </h3>
-                <p className="mb-4 text-gray-400">
+                <h3 className="mb-2 text-xl font-semibold">Tidak ada hasil</h3>
+                <p className="mb-4 text-muted-foreground">
                   Kami tidak dapat menemukan FAQ yang cocok dengan pencarian
                   Anda. Coba kata kunci yang berbeda atau jelajahi semua
                   kategori di bawah.
                 </p>
-                <Button
-                  onClick={clearSearch}
-                  variant="outline"
-                  className="border-gray-600 bg-transparent text-gray-300 hover:bg-gray-700"
-                >
+                <Button onClick={clearSearch} variant="outline">
                   Hapus pencarian
                 </Button>
               </CardContent>
@@ -332,24 +325,17 @@ export default function Component() {
             filteredCategories.map((category, categoryIndex) => {
               const IconComponent = category.icon;
               return (
-                <Card
-                  key={categoryIndex}
-                  className="overflow-hidden border-0 border-gray-700 bg-gray-800/80 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl"
-                >
-                  <CardHeader
-                    className={`${category.bgColor} relative border-b border-gray-700`}
-                  >
+                <Card key={categoryIndex}>
+                  <CardHeader>
                     <div className="flex items-center space-x-4">
-                      <div
-                        className={`inline-flex h-12 w-12 items-center justify-center bg-gradient-to-r ${category.color} rounded-xl shadow-lg`}
-                      >
-                        <IconComponent className="h-6 w-6 text-white" />
+                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary">
+                        <IconComponent className="h-6 w-6 text-primary-foreground" />
                       </div>
                       <div>
-                        <CardTitle className="text-2xl font-bold text-white">
+                        <CardTitle className="text-2xl font-bold">
                           {category.title}
                         </CardTitle>
-                        <CardDescription className="mt-1 text-gray-400">
+                        <CardDescription>
                           {isSearching ? (
                             <>{category.faqs.length} pertanyaan yang cocok</>
                           ) : (
@@ -361,10 +347,6 @@ export default function Component() {
                         </CardDescription>
                       </div>
                     </div>
-                    {/* Decorative gradient */}
-                    <div
-                      className={`absolute right-0 top-0 h-32 w-32 bg-gradient-to-br ${category.color} -translate-y-8 translate-x-8 rounded-full opacity-10`}
-                    ></div>
                   </CardHeader>
                   <CardContent className="p-6">
                     <Accordion
@@ -376,14 +358,14 @@ export default function Component() {
                         <AccordionItem
                           key={faqIndex}
                           value={`item-${categoryIndex}-${faqIndex}`}
-                          className="rounded-lg border border-gray-700 px-4 transition-colors duration-200 hover:border-gray-600"
+                          className="rounded-lg border px-4"
                         >
-                          <AccordionTrigger className="py-4 text-left font-semibold text-white hover:text-gray-200">
+                          <AccordionTrigger className="py-4 text-left font-semibold hover:no-underline">
                             {isSearching
                               ? highlightText(faq.question, inputValue)
                               : faq.question}
                           </AccordionTrigger>
-                          <AccordionContent className="pb-4 leading-relaxed text-gray-300">
+                          <AccordionContent className="pb-4 text-muted-foreground">
                             {isSearching
                               ? highlightText(faq.answer, inputValue)
                               : faq.answer}
@@ -397,51 +379,50 @@ export default function Component() {
             })
           )}
         </div>
+      </section>
 
-        {/* Contact Section */}
-        <div className="mx-auto mt-20 max-w-4xl">
-          <Card className="overflow-hidden border-0 border-gray-700 bg-gradient-to-r from-gray-800/80 via-gray-800/90 to-gray-800/80 shadow-2xl">
-            <CardHeader className="relative pb-6 text-center">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-cyan-500/5"></div>
-              <div className="relative">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600">
-                  <MessageCircle className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-3xl font-bold text-transparent">
-                  Masih ada pertanyaan?
-                </CardTitle>
-                <CardDescription className="mt-2 text-lg text-gray-400">
-                  Tidak menemukan yang Anda cari? Kami siap membantu Anda!
-                </CardDescription>
+      {/* Contact Section */}
+      <section className="bg-muted/40 px-4 py-16 md:px-20">
+        <div className="mx-auto max-w-4xl">
+          <Card>
+            <CardHeader className="text-center">
+              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary">
+                <MessageCircle className="h-8 w-8 text-primary-foreground" />
               </div>
+              <CardTitle className="text-3xl font-bold">
+                Masih ada pertanyaan?
+              </CardTitle>
+              <CardDescription className="mt-2 text-lg">
+                Tidak menemukan yang Anda cari? Kami siap membantu Anda!
+              </CardDescription>
             </CardHeader>
             <CardContent className="pb-8">
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Button className="flex h-12 items-center gap-3 bg-gradient-to-r from-pink-500 to-rose-500 px-8 shadow-lg transition-all duration-300 hover:from-pink-600 hover:to-rose-600 hover:shadow-xl">
+                <Button className="flex h-12 items-center gap-3 px-8">
                   <Instagram className="h-5 w-5" />
                   Follow Instagram
                 </Button>
-                <Button className="flex h-12 items-center gap-3 bg-gradient-to-r from-sky-500 to-blue-500 px-8 shadow-lg transition-all duration-300 hover:from-sky-600 hover:to-blue-600 hover:shadow-xl">
+                <Button className="flex h-12 items-center gap-3 px-8">
                   <Twitter className="h-5 w-5" />
                   Follow Twitter
                 </Button>
                 <Button
                   variant="outline"
-                  className="flex h-12 items-center gap-3 border-2 border-gray-600 bg-gray-800 px-8 text-gray-200 shadow-lg transition-all duration-300 hover:border-gray-500 hover:bg-gray-700 hover:shadow-xl"
+                  className="flex h-12 items-center gap-3 px-8"
                 >
                   <Mail className="h-5 w-5" />
                   Email Support
                 </Button>
               </div>
-              <div className="mt-6 rounded-lg border border-gray-600 bg-gray-700/60 p-4 text-center">
-                <p className="text-sm font-medium text-gray-300">
+              <div className="mt-6 rounded-lg border bg-muted/50 p-4 text-center">
+                <p className="text-sm font-medium text-muted-foreground">
                   📱 Hubungi kami melalui media sosial atau email
                 </p>
               </div>
             </CardContent>
           </Card>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
