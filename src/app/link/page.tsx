@@ -140,7 +140,7 @@ export default function CreateLinkPage() {
                         mudah diingat.
                         <br />
                         Misalnya: &quot;rickroll&quot; akan menghasilkan
-                        link.himafiitb.com/rickroll
+                        link.gamaisitb.org/rickroll
                       </p>
                     </div>
                   </PopoverContent>
@@ -174,11 +174,11 @@ export default function CreateLinkPage() {
               <AlertTitle className="font-bold">Link Ready!</AlertTitle>
               <AlertDescription>
                 <a
-                  href={`https://link.himafiitb.com/${finalLink.slug}`}
+                  href={`https://link.gamaisitb.org/${finalLink.slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="break-all font-mono text-foreground hover:underline"
-                >{`https://link.himafiitb.com/${finalLink.slug}`}</a>
+                >{`https://link.gamaisitb.org/${finalLink.slug}`}</a>
                 <p className="break-all text-sm text-gray-500">
                   Redirects to: {finalLink.url}
                 </p>
@@ -188,7 +188,7 @@ export default function CreateLinkPage() {
               <div className="flex-shrink-0 rounded-lg bg-white p-2">
                 <QRCodeCanvas
                   id="qr-code-canvas" // Add an ID for selection
-                  value={`https://link.himafiitb.com/${finalLink.slug}`}
+                  value={`https://link.gamaisitb.org/${finalLink.slug}`}
                   size={80}
                 />
               </div>

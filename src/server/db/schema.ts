@@ -20,12 +20,15 @@ import { type AdapterAccount } from "next-auth/adapters";
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const createTable = pgTableCreator((name) => `cnb-himafi_${name}`);
+export const createTable = pgTableCreator((name) => `gweb_${name}`);
+export const createTableGcorp = pgTableCreator(
+  (name) => `gcorp-gamais_${name}`,
+);
 
 // Define user roles enum
 export const userRoleEnum = pgEnum("user_role", ["user", "member", "admin"]);
 
-export const links = createTable("links", {
+export const links = createTableGcorp("links", {
   id: serial("id").primaryKey(),
   slug: varchar("slug", { length: 256 }).notNull().unique(),
   url: text("url").notNull(),
