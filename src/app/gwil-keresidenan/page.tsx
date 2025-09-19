@@ -2,79 +2,99 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "~/components/ui/card";
 
-const wilayah = [
+const gwil = [
   {
-    name: "G-Wil Bandung Raya",
-    logo: "/gwil/bandung.png",
-    social: "https://instagram.com/gwil.bandung",
+    name: "MILIS",
+    subtitle: "FMIPA",
+    logo: "/logo gamais wilayah/Logo MILIS.PNG",
+    social: "https://instagram.com/milisfmipaitb",
   },
   {
-    name: "G-Wil Banten",
-    logo: "/gwil/banten.png",
-    social: "https://instagram.com/gwil.banten",
+    name: "AL-AMIN",
+    subtitle: "FTSL",
+    logo: "/logo gamais wilayah/Logo AL-AMIN.PNG",
+    social: "https://instagram.com/alamin.ftsl",
   },
   {
-    name: "G-Wil Jakarta",
-    logo: "/gwil/jakarta.png",
-    social: "https://instagram.com/gwil.jakarta",
+    name: "AL-HAYAAT",
+    subtitle: "SITH-S",
+    logo: "/logo gamais wilayah/Logo AL-HAYAAT.PNG",
+    social: "https://instagram.com/alhayaatitb",
   },
   {
-    name: "G-Wil Jabar Selatan",
-    logo: "/gwil/jabarselatan.png",
-    social: "https://instagram.com/gwil.jabarselatan",
+    name: "AN-NAHL",
+    subtitle: "SITH-R",
+    logo: "/logo gamais wilayah/Logo AN-NAHL.PNG",
+    social: "https://instagram.com/annahlsithritb",
   },
   {
-    name: "G-Wil Jabar Timur",
-    logo: "/gwil/jabartimur.png",
-    social: "https://instagram.com/gwil.jabartimur",
+    name: "AL-USWAH",
+    subtitle: "FITB",
+    logo: "/logo gamais wilayah/Logo AL-USWAH.PNG",
+    social: "https://instagram.com/aluswahitb",
   },
   {
-    name: "G-Wil Jabar Utara",
-    logo: "/gwil/jabarutara.png",
-    social: "https://instagram.com/gwil.jabarutara",
+    name: "GAMIFTI",
+    subtitle: "FTI",
+    logo: "/logo gamais wilayah/Logo GAMIFTI.PNG",
+    social: "https://instagram.com/gamifti.itb",
   },
   {
-    name: "G-Wil Jateng",
-    logo: "/gwil/jateng.png",
-    social: "https://instagram.com/gwil.jateng",
+    name: "GEMURUH",
+    subtitle: "FTTM",
+    logo: "/logo gamais wilayah/Logo GEMURUH.PNG",
+    social: "https://instagram.com/gemuruhfttm_",
   },
   {
-    name: "G-Wil Jatim",
-    logo: "/gwil/jatim.png",
-    social: "https://instagram.com/gwil.jatim",
+    name: "IMAM",
+    subtitle: "FTMD",
+    logo: "/logo gamais wilayah/Logo IMAM.PNG",
+    social: "https://instagram.com/imamftmd",
   },
   {
-    name: "G-Wil Sumatera",
-    logo: "/gwil/sumatera.png",
-    social: "https://instagram.com/gwil.sumatera",
+    name: "KAMIFA",
+    subtitle: "SF",
+    logo: "/logo gamais wilayah/Logo KAMIFA.PNG",
+    social: "https://instagram.com/kamifa_",
   },
   {
-    name: "G-Wil Kalimantan",
-    logo: "/gwil/kalimantan.png",
-    social: "https://instagram.com/gwil.kalimantan",
+    name: "KISR",
+    subtitle: "FSRD",
+    logo: "/logo gamais wilayah/Logo KISR.PNG",
+    social: "https://instagram.com/kisr_itb",
   },
   {
-    name: "G-Wil Sulawesi",
-    logo: "/gwil/sulawesi.png",
-    social: "https://instagram.com/gwil.sulawesi",
+    name: "MSTEI",
+    subtitle: "STEI",
+    logo: "/logo gamais wilayah/Logo MSTEI.PNG",
+    social: "https://instagram.com/muslimstei",
   },
   {
-    name: "G-Wil Luar Negeri",
-    logo: "/gwil/ln.png",
-    social: "https://instagram.com/gwil.ln",
+    name: "MUSA",
+    subtitle: "SAPPK",
+    logo: "/logo gamais wilayah/Logo MUSA.PNG",
+    social: "https://instagram.com/musa.itb",
+  },
+  {
+    name: "SMUTY",
+    subtitle: "SBM",
+    logo: "/logo gamais wilayah/Logo SMUTY.PNG",
+    social: "https://instagram.com/smutyy_itb",
   },
 ];
 
 const keresidenan = [
   {
-    name: "Keresidenan Sumedang",
-    logo: "/keresidenan/sumedang.png",
-    social: "https://instagram.com/keresidenan.sumedang",
+    name: "MIJ",
+    subtitle: "Jatinangor",
+    logo: "/Logo Keresidenan/logo MIJ_Clear.png",
+    social: "https://instagram.com/keresidenan.mij",
   },
   {
-    name: "Keresidenan Cirebon",
-    logo: "/keresidenan/cirebon.png",
-    social: "https://instagram.com/keresidenan.cirebon",
+    name: "KAWAI",
+    subtitle: "Cirebon",
+    logo: "/Logo Keresidenan/Logo KAWAI Transparan.png",
+    social: "https://instagram.com/keresidenan.kawai",
   },
 ];
 
@@ -82,11 +102,17 @@ export default function GWilKeresidenanPage() {
   return (
     <main className="bg-background px-4 py-16 text-foreground md:px-20">
       <section className="mb-16">
-        <h1 className="mb-8 text-center text-3xl font-bold">GAMAIS Wilayah</h1>
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {wilayah.map((g, i) => (
-            <Card key={i} className="flex flex-col items-center p-6">
-              <div className="relative mb-4 h-24 w-24">
+        <h1 className="mb-2 text-center text-3xl font-bold">GAMAIS Wilayah</h1>
+        <p className="mb-8 text-center text-lg text-muted-foreground">
+          GAMAIS terdiri atas beberapa G-wil yang mewakili tiap fakultas.
+        </p>
+        <div className="xs:grid-cols-2 mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {gwil.map((g, i) => (
+            <Card
+              key={i}
+              className="mx-auto flex w-full max-w-xs flex-col items-center px-2 py-3"
+            >
+              <div className="relative mb-2 h-32 w-40 rounded-lg bg-white p-2 shadow-sm">
                 <Image
                   src={g.logo}
                   alt={g.name}
@@ -95,14 +121,18 @@ export default function GWilKeresidenanPage() {
                 />
               </div>
               <CardContent className="flex flex-col items-center">
-                <h3 className="mb-2 text-center text-lg font-bold">{g.name}</h3>
-                <Link
-                  href={g.social}
-                  target="_blank"
-                  className="text-primary underline"
-                >
-                  Instagram
-                </Link>
+                <h3 className="mb-1 text-center text-lg font-bold">
+                  <Link
+                    href={g.social}
+                    target="_blank"
+                    className="text-primary"
+                  >
+                    {g.name}
+                  </Link>
+                </h3>
+                <p className="mb-1 text-center text-sm text-muted-foreground">
+                  {g.subtitle}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -110,10 +140,13 @@ export default function GWilKeresidenanPage() {
       </section>
       <section>
         <h2 className="mb-8 text-center text-2xl font-bold">Keresidenan</h2>
-        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-8 sm:grid-cols-2">
+        <div className="xs:grid-cols-2 mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
           {keresidenan.map((k, i) => (
-            <Card key={i} className="flex flex-col items-center p-6">
-              <div className="relative mb-4 h-24 w-24">
+            <Card
+              key={i}
+              className="mx-auto flex w-full max-w-xs flex-col items-center px-2 py-3"
+            >
+              <div className="relative mb-4 h-32 w-40 rounded-lg bg-white p-2 shadow-sm">
                 <Image
                   src={k.logo}
                   alt={k.name}
@@ -122,14 +155,18 @@ export default function GWilKeresidenanPage() {
                 />
               </div>
               <CardContent className="flex flex-col items-center">
-                <h3 className="mb-2 text-center text-lg font-bold">{k.name}</h3>
-                <Link
-                  href={k.social}
-                  target="_blank"
-                  className="text-primary underline"
-                >
-                  Instagram
-                </Link>
+                <h3 className="mb-1 text-center text-lg font-bold">
+                  <Link
+                    href={k.social}
+                    target="_blank"
+                    className="text-primary"
+                  >
+                    {k.name}
+                  </Link>
+                </h3>
+                <p className="mb-2 text-center text-sm text-muted-foreground">
+                  {k.subtitle}
+                </p>
               </CardContent>
             </Card>
           ))}
