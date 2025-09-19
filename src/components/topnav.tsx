@@ -46,15 +46,16 @@ export function TopNav() {
 
         {/* Center: Navigation Links (Desktop) */}
         <nav className="items-center space-x-6 text-sm font-medium max-lg:hidden">
-          <Link href="/tentangkami">Tentang Kami</Link>
+          {/* <Link href="/tentangkami">Tentang Kami</Link>
           <Link href="/events">Events</Link>
           <Link href="/newseditor">News Editor</Link>
           <Link href="/contohabout">[Contoh] About</Link>
-          <Link href="/contohfaq">[Contoh] FAQ</Link>
-          <Link href="/about">About</Link>
+          <Link href="/contohfaq">[Contoh] FAQ</Link> */}
+          <Link href="/aboutus">About Us</Link>
           <Link href="/programs">Programs</Link>
-          <Link href="/news">News</Link>
-          <Link href="/blog">Blog</Link>
+          <Link href="/gwil-keresidenan">G-Wil & Keresidenan</Link>
+          {/* <Link href="/news">News</Link> */}
+          {/* <Link href="/blog">Blog</Link> */}
           <Link href="/faq">FAQ</Link>
           {["admin", "member"].includes(role) && (
             <>
@@ -129,8 +130,9 @@ export function TopNav() {
                 </SheetTitle>
                 <Link href="/about">About</Link>
                 <Link href="/programs">Programs</Link>
-                <Link href="/news">News</Link>
-                <Link href="/blog">Blog</Link>
+                <Link href="/gwil-keresidenan">G-Wil & Keresidenan</Link>
+                {/* <Link href="/news">News</Link> */}
+                {/* <Link href="/blog">Blog</Link> */}
                 <Link href="/faq">FAQ</Link>
                 {["admin", "member"].includes(role) && (
                   <>
