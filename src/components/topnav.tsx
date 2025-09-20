@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { api } from "~/trpc/react";
-import type { RouterOutputs } from "~/trpc/react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import * as React from "react";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "./ui/sheet";
 import { Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
 
@@ -46,16 +48,9 @@ export function TopNav() {
 
         {/* Center: Navigation Links (Desktop) */}
         <nav className="items-center space-x-6 text-sm font-medium max-lg:hidden">
-          {/* <Link href="/tentangkami">Tentang Kami</Link>
-          <Link href="/events">Events</Link>
-          <Link href="/newseditor">News Editor</Link>
-          <Link href="/contohabout">[Contoh] About</Link>
-          <Link href="/contohfaq">[Contoh] FAQ</Link> */}
           <Link href="/aboutus">About Us</Link>
           <Link href="/programs">Programs</Link>
           <Link href="/gwil-keresidenan">G-Wil & Keresidenan</Link>
-          {/* <Link href="/news">News</Link> */}
-          {/* <Link href="/blog">Blog</Link> */}
           <Link href="/faq">FAQ</Link>
           {["admin", "member"].includes(role) && (
             <>
@@ -80,10 +75,8 @@ export function TopNav() {
           )}
         </nav>
 
-        {/* Right: Search, User, and Mobile Menu */}
+        {/* Right: User and Mobile Menu */}
         <div className="flex items-center gap-4">
-          {/* Search */}
-
           {/* User Info */}
           <div className="flex items-center gap-4">
             {session ? (
@@ -115,45 +108,63 @@ export function TopNav() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-
               <SheetContent
                 side="left"
                 className="flex flex-col gap-6 overflow-scroll text-lg font-medium"
               >
                 <SheetTitle>
-                  <Link
-                    href="/"
-                    className="flex items-center gap-2 text-lg font-semibold"
-                  >
-                    <span className="font-bold">HIMAFI ITB</span>
-                  </Link>
+                  <SheetClose asChild>
+                    <Link
+                      href="/"
+                      className="flex items-center gap-2 text-lg font-semibold"
+                    >
+                      <span className="font-bold">GAMAIS ITB</span>
+                    </Link>
+                  </SheetClose>
                 </SheetTitle>
-                <Link href="/about">About</Link>
-                <Link href="/programs">Programs</Link>
-                <Link href="/gwil-keresidenan">G-Wil & Keresidenan</Link>
-                {/* <Link href="/news">News</Link> */}
-                {/* <Link href="/blog">Blog</Link> */}
-                <Link href="/faq">FAQ</Link>
+                <SheetClose asChild>
+                  <Link href="/aboutus">About Us</Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/programs">Programs</Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/gwil-keresidenan">G-Wil & Keresidenan</Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/faq">FAQ</Link>
+                </SheetClose>
                 {["admin", "member"].includes(role) && (
                   <>
-                    <Link href="/editor" className="font-semibold text-primary">
-                      New Article
-                    </Link>
-                    <Link
-                      href="/editor/manage"
-                      className="font-semibold text-primary"
-                    >
-                      Manage Posts
-                    </Link>
-                    <Link href="/link" className="font-semibold text-primary">
-                      Link shortener
-                    </Link>
+                    <SheetClose asChild>
+                      <Link
+                        href="/editor"
+                        className="font-semibold text-primary"
+                      >
+                        New Article
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link
+                        href="/editor/manage"
+                        className="font-semibold text-primary"
+                      >
+                        Manage Posts
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link href="/link" className="font-semibold text-primary">
+                        Link shortener
+                      </Link>
+                    </SheetClose>
                   </>
                 )}
                 {["admin"].includes(role) && (
-                  <Link href="/admin" className="font-semibold text-primary">
-                    Admin
-                  </Link>
+                  <SheetClose asChild>
+                    <Link href="/admin" className="font-semibold text-primary">
+                      Admin
+                    </Link>
+                  </SheetClose>
                 )}
               </SheetContent>
             </Sheet>

@@ -25,6 +25,7 @@ import {
   Coffee,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
   const visionMission = {
@@ -164,21 +165,16 @@ export default function AboutPage() {
           <Users className="h-8 w-8 text-primary-foreground" />
         </div>
         <h1 className="text-5xl font-bold tracking-tight md:text-6xl">
-          Tentang HIMAFI ITB
+          Tentang GAMAIS ITB
         </h1>
         <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-          Wadah belajar dan berdampak bagi mahasiswa Fisika ITB.
+          Tempat berproses dan berkolaborasi bagi kamu, mahasiswa Islam ITB,
+          untuk menjadi progresif, kontributif, dan inspiratif.
         </p>
-        <div className="mt-8 flex gap-4">
-          <Button asChild>
-            <Link href="/">Kembali ke Beranda</Link>
-          </Button>
-          <Button variant="outline">Hubungi Kami</Button>
-        </div>
       </section>
 
-      {/* What is HIMAFI ITB */}
-      <section className="px-4 py-16 md:px-20">
+      {/* What is GAMAIS ITB */}
+  <section className="px-4 pt-8 pb-16 md:px-20">
         <div className="mx-auto max-w-4xl">
           <Card>
             <CardHeader>
@@ -188,141 +184,50 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold">
-                    Apa itu HIMAFI ITB?
+                    Apa itu GAMAIS ITB?
                   </CardTitle>
-                  <CardDescription>
-                    Mengenal lebih dekat keluarga besar fisika ITB
-                  </CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent className="space-y-6 text-muted-foreground">
               <div className="space-y-4">
                 <p className="text-base leading-relaxed">
-                  <strong className="font-semibold text-foreground">
-                    HIMAFI ITB
-                  </strong>{" "}
-                  dibentuk untuk ikut membantu dan membina terbentuknya sarjana
-                  fisika yang{" "}
-                  <span className="font-medium text-primary">
-                    jujur, pandai, berharga diri
-                  </span>
-                  , dan mempunyai
-                  <span className="font-medium text-primary">
-                    {" "}
-                    integritas
-                  </span>{" "}
-                  terhadap bangsa dan negara Indonesia{" "}
-                  <em className="text-sm text-muted-foreground/80">
-                    (AD/ART HIMAFI ITB, 1981)
-                  </em>
-                  .
+                  Keluarga Mahasiswa Islam Institut Teknologi Bandung (GAMAIS
+                  ITB) berdiri pada 30 Agustus 1987 sebagai wadah yang
+                  menyatukan berbagai aktivitas mahasiswa di kampus ITB. Sejak
+                  awal kehadirannya, GAMAIS ITB berperan sebagai ruang
+                  kebersamaan, pengembangan diri, serta kontribusi mahasiswa
+                  islam dalam lingkup sosial, akademik, maupun kepemimpinan.
                 </p>
-
-                <div className="rounded-lg border-l-4 border-primary bg-muted/30 p-4">
-                  <p className="text-base leading-relaxed">
-                    Asas dari{" "}
-                    <strong className="text-foreground">HIMAFI ITB</strong>{" "}
-                    adalah{" "}
-                    <span className="font-semibold text-primary">
-                      Tri Dharma Perguruan Tinggi
-                    </span>{" "}
-                    yang bersendikan{" "}
-                    <span className="font-semibold text-primary">
-                      Pancasila
-                    </span>
-                    .
-                  </p>
-                </div>
-
                 <p className="text-base leading-relaxed">
-                  <strong className="font-semibold text-foreground">
-                    HIMAFI ITB
-                  </strong>{" "}
-                  merupakan organisasi kemahasiswaan berupa himpunan mahasiswa
-                  jurusan di lingkup Institut Teknologi Bandung yang, secara
-                  lebih khusus, dilatarbelakangi oleh{" "}
-                  <span className="font-semibold text-primary">
-                    bidang keilmuan fisika
-                  </span>
-                  , yang bertujuan ikut membantu dan membina terbentuknya
-                  sarjana fisika yang{" "}
-                  <span className="font-medium text-primary">
-                    jujur, pandai, berharga diri
-                  </span>
-                  , dan mempunyai
-                  <span className="font-medium text-primary">
-                    {" "}
-                    integritas
-                  </span>{" "}
-                  terhadap bangsa dan negara Indonesia.{" "}
-                  <strong className="text-foreground">HIMAFI ITB</strong>{" "}
-                  sebagai sebuah organisasi berperan dalam memenuhi
-                  <span className="font-medium text-foreground">
-                    {" "}
-                    kebutuhan-kebutuhan mendasar
-                  </span>{" "}
-                  tersebut bagi beberapa mahasiswa secara sektoral, bukan
-                  individu{" "}
-                  <em className="text-sm text-muted-foreground/80">
-                    (Konsepsi KM ITB, 2020)
-                  </em>
-                  .
+                  Berangkat dari semangat kebersamaan, GAMAIS ITB hadir untuk
+                  mewadahi potensi mahasiswa agar dapat berkembang secara utuh.
+                  Tidak hanya dalam aspek keilmuan, tetapi juga karakter,
+                  kepemimpinan, dan sensitivitas sosial. Aktivitas GAMAIS ITB
+                  menjangkau berbagai tingkat, mulai dari lingkup program studi,
+                  fakultas, hingga skala kampus secara menyeluruh, menjadikannya
+                  salah satu organisasi yang memiliki jaringan dan peran besar
+                  dalam dinamika kehidupan mahasiswa ITB.
                 </p>
-              </div>
-
-              <div className="rounded-lg border border-primary/20 bg-gradient-to-r from-primary/5 to-transparent p-4">
-                <h4 className="mb-3 text-lg font-semibold text-foreground">
-                  Kebutuhan mendasar yang perlu dipenuhi oleh HIMAFI ITB:
-                </h4>
-                <ul className="ml-6 list-disc space-y-3">
-                  <li className="leading-relaxed text-muted-foreground">
-                    <span className="font-medium text-primary">
-                      pendidikan akademis
-                    </span>{" "}
-                    di bidang keilmuan fisika yang tidak tumpang tindih dengan
-                    pendidikan yang diakomodasi melalui program studi,
-                  </li>
-                  <li className="leading-relaxed text-muted-foreground">
-                    <span className="font-medium text-primary">finansial</span>{" "}
-                    yang tidak tumpang tindih dengan finansial yang diakomodasi
-                    oleh individu, sehingga lebih berorientasi pada penyaluran
-                    dana bantuan dan informasinya,
-                  </li>
-                  <li className="leading-relaxed text-muted-foreground">
-                    <span className="font-medium text-primary">
-                      wadah pengembangan diri
-                    </span>{" "}
-                    yang sesuai dengan karakteristik mahasiswa fisika ideal,
-                  </li>
-                  <li className="leading-relaxed text-muted-foreground">
-                    <span className="font-medium text-primary">
-                      lingkungan sosial
-                    </span>{" "}
-                    yang sesuai dengan karakteristik mahasiswa fisika ideal,
-                  </li>
-                  <li className="leading-relaxed text-muted-foreground">
-                    <span className="font-medium text-primary">
-                      wadah aktualisasi diri
-                    </span>{" "}
-                    di bidang keilmuan fisika
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-4 border-t border-muted pt-4">
                 <p className="text-base leading-relaxed">
-                  <strong className="text-lg font-semibold text-foreground">
-                    HIMAFI ITB
-                  </strong>{" "}
-                  adalah organisasi kemahasiswaan yang mewadahi seluruh
-                  mahasiswa Program Studi Fisika Institut Teknologi Bandung .
-                  Kami bukan hanya sekadar organisasi formal, tapi lebih dari
-                  itu - kami adalah{" "}
-                  <span className="text-lg font-bold text-primary">
-                    keluarga
-                  </span>{" "}
-                  .
+                  Selama hampir empat dekade, GAMAIS ITB telah menjadi rumah
+                  bagi ribuan mahasiswa yang ingin bertumbuh dan berkontribusi.
+                  Di dalamnya, mahasiswa difasilitasi untuk berkolaborasi,
+                  menginisiasi karya, serta mengembangkan kepedulian terhadap
+                  masyarakat. Tidak sedikit alumni GAMAIS ITB yang kemudian
+                  mengambil peran penting di berbagai sektor, baik di ranah
+                  akademik, industri, maupun sosial, membawa nilai-nilai
+                  kebaikan dan kontribusi yang ditanamkan selama berproses di
+                  organisasi ini.
+                </p>
+                <p className="text-base leading-relaxed">
+                  Kini, GAMAIS ITB terus berkembang seiring zaman, merespons
+                  kebutuhan mahasiswa, serta menjaga relevansinya sebagai
+                  organisasi yang solid, kontributif, dan inspiratif. Dengan
+                  semangat tersebut, GAMAIS ITB senantiasa berkomitmen untuk
+                  menjadi ruang aman, kolaboratif, dan penuh makna bagi
+                  mahasiswa ITB yang ingin belajar, bertumbuh, serta memberikan
+                  dampak positif bagi kampus dan masyarakat luas.
                 </p>
               </div>
             </CardContent>
@@ -330,7 +235,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* Visi & Misi GAMAIS ITB 2025 */}
       <section className="bg-muted/40 px-4 py-16 md:px-20">
         <div className="mx-auto max-w-4xl">
           <Card>
@@ -341,189 +246,34 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <CardTitle className="text-2xl font-bold">
-                    Visi & Misi
+                    Visi & Misi GAMAIS ITB 2025
                   </CardTitle>
-                  <CardDescription>Arah dan tujuan HIMAFI ITB</CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent className="space-y-8">
               <div>
                 <h3 className="mb-4 text-xl font-bold">Visi</h3>
-                <div className="space-y-3">
-                  {/* Vision */}
-                  {visionMission.visions.map((vision, index) => (
-                    <div key={index} className="flex items-center gap-6">
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                        {index + 1}
-                      </div>
-                      <p className="rounded-lg border-2 border-dashed border-muted p-3 text-muted-foreground">
-                        {vision}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Mission */}
-              <div>
-                <h3 className="mb-4 text-xl font-bold">Misi</h3>
-                <div className="space-y-3">
-                  {visionMission.missions.map((mission, index) => (
-                    <div key={index} className="flex items-center gap-6">
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                        {index + 1}
-                      </div>
-                      <p className="rounded-lg border-2 border-dashed border-muted p-3 text-muted-foreground">
-                        {mission}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="text-muted-foreground">
-                Source:{" "}
-                <a
-                  className="underline"
-                  href="https://medium.com/@himafiitb/die-s-himafi-itb-ke-49-6c876ceebacd"
-                >
-                  https://medium.com/@himafiitb/die-s-himafi-itb-ke-49-6c876ceebacd
-                </a>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* vision & mission BP */}
-      <section className="bg-muted/40 px-4 py-16 md:px-20">
-        <div className="mx-auto max-w-4xl">
-          <Card>
-            <CardHeader>
-              <div className="flex items-center space-x-4">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary">
-                  <Target className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <CardTitle className="text-2xl font-bold">
-                    Visi BP NAKAMA HIMAFI ITB 2025/2026
-                  </CardTitle>
-                  {/* <CardDescription className="mt-1 text-gray-400"></CardDescription> */}
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-8">
-              {/* Vision */}
-              <div>
-                <h3 className="mb-4 text-xl font-bold">
-                  Misi BP NAKAMA HIMAFI ITB 2025/2026
-                </h3>
                 <p className="rounded-lg border-l-4 border-primary bg-muted/30 p-4 text-lg italic leading-relaxed">
-                  &quot;{visionMissionBP.vision}&quot;
+                  "Membangkitkan semangat keislaman untuk menginspirasi kebaikan
+                  di seluruh penjuru kampus ITB."
                 </p>
               </div>
-
-              {/* Mission */}
               <div>
                 <h3 className="mb-4 text-xl font-bold">Misi</h3>
-                <div className="space-y-3">
-                  {visionMissionBP.missions.map((mission, index) => (
-                    <div key={index} className="flex items-center gap-6">
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                        {index + 1}
-                      </div>
-                      <p className="rounded-lg border-2 border-dashed border-muted p-3 text-muted-foreground">
-                        {mission}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <p className="rounded-lg border-l-4 border-primary bg-muted/30 p-4 text-lg italic leading-relaxed">
+                  "Menjadi inisiator perubahan yang menyebarkan nilai-nilai
+                  keislaman untuk menciptakan lingkungan madani di ITB."
+                </p>
               </div>
             </CardContent>
           </Card>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="px-4 py-16 md:px-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-8 text-center">
-            <h2 className="mb-4 text-3xl font-bold">Nilai-Nilai Kami</h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              Prinsip-prinsip yang menjadi fondasi dalam setiap kegiatan dan
-              interaksi di HIMAFI ITB
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {values.map((value, index) => {
-              const IconComponent = value.icon;
-              return (
-                <Card key={index}>
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary">
-                        <IconComponent className="h-6 w-6 text-primary-foreground" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="mb-2 text-xl font-bold">
-                          {value.title}
-                        </h3>
-                        <p className="text-muted-foreground">
-                          {value.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Programs */}
-      <section className="bg-muted/40 px-4 py-16 md:px-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-8 text-center">
-            <h2 className="mb-4 text-3xl font-bold">Program Kami</h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              Berbagai kegiatan dan program yang kami selenggarakan untuk
-              pengembangan mahasiswa fisika ITB
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {programs.map((program, index) => {
-              const IconComponent = program.icon;
-              return (
-                <Card key={index}>
-                  <CardContent className="p-6">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                          <IconComponent className="h-5 w-5 text-primary-foreground" />
-                        </div>
-                        <Badge variant="secondary">{program.category}</Badge>
-                      </div>
-                      <div>
-                        <h3 className="mb-2 text-lg font-bold">
-                          {program.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {program.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
         </div>
       </section>
 
       {/* Organogram */}
       <section className="px-4 py-16 md:px-20">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-4xl">
           <Card>
             <CardHeader>
               <div className="flex items-center space-x-4">
@@ -541,7 +291,18 @@ export default function AboutPage() {
               </div>
             </CardHeader>
             <CardContent className="p-0">
-              <img src="organogram-dark.png" alt="Organogram" />
+              <div className="flex w-full justify-center py-8">
+                <div className="max-w-full rounded-xl border bg-white p-4 shadow-lg">
+                  <Image
+                    src="/Organogram GAMAIS ITB.png"
+                    alt="Struktur Organisasi GAMAIS ITB"
+                    width={800}
+                    height={600}
+                    className="rounded-lg"
+                    style={{ maxWidth: "100%", height: "auto" }}
+                  />
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
