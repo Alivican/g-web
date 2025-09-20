@@ -10,46 +10,70 @@ import Image from "next/image";
 
 const programs = [
   {
-    images: ["/programs/tubay.jpg", "/programs/tubay2.jpg"],
-    title: "TUBAY (Tutorial Bayar)",
+    images: [
+      "/Dokumentasi Kegiatan/Mentoring Agama.jpg",
+      "/Dokumentasi Kegiatan/Pelayanan Salat OSKM.JPG",
+    ],
+    title: "Penyambutan Mahasiswa Baru (PMB) GAMAIS ITB",
     description:
-      "Program tutorial akademik untuk membantu mahasiswa dalam mata kuliah yang challenging.",
-    category: "Akademik",
+      "Ragam aktivitas yang dilakukan dengan mengedepankan pelayanan kepada Mahasiswa Baru ITB (khususnya pelayanan salat dan persiapan perkuliahan) serta langkah awal membina Mahasiswa Baru dalam menghadapi awal baru kehidupan mereka.",
+    category: "Pelayanan",
   },
   {
-    images: ["/programs/eureka.jpg", "/programs/eureka2.jpg"],
-    title: "EUREKA",
+    images: ["/Dokumentasi Kegiatan/Kemuslimahan.jpg"],
+    title: "Komunitas Muslimah (Annisaa) ITB",
     description:
-      "Event tahunan terbesar GAMAIS ITB dengan berbagai kompetisi dan seminar nasional.",
-    category: "Event Besar",
+      "Melalui Kementerian Annisaa, GAMAIS ITB hadir memberikan wadah bagi para muslimah ITB untuk berinteraksi satu sama lain dalam nuansa yang interaktif dan menyenangkan.",
+    category: "Annisaa",
   },
   {
-    images: ["/programs/ngopi.jpg", "/programs/ngopi2.jpg"],
-    title: "Ngopi Bareng",
+    images: ["/Dokumentasi Kegiatan/GAMAIS Peduli.jpg"],
+    title: "Kemasyakatan GAMAIS ITB",
     description:
-      "Kegiatan informal untuk mempererat hubungan antar mahasiswa dan sharing pengalaman.",
+      "Sebagai wujud pemenuhan Tri Dharma Perguruan Tinggi, GAMAIS ITB menjadi wadah bagi anggotanya untuk turut aktif memberikan kontribusi nyata bagi masyarakat melalui program GAMAIS Mengabdi dan Kelas Kemasyarakatan.",
+    category: "Kemasyarakatan",
+  },
+  {
+    images: ["/Dokumentasi Kegiatan/Lebaran di Kampus.jpg"],
+    title: "Ramadan di Kampus",
+    description:
+      "Mengadakan kegiatan syiar islami di dalam kampus berupa Inspirasi Ramadan (IRAMA) on Campus, berbagi takjil bersama GAMAIS Wilayah, dan kegiatan Ramadan lainnya.",
+    category: ["Intrakampus", "Kewilayahan"],
+  },
+  {
+    images: ["/Dokumentasi Kegiatan/Berbagi Puasa Arafah.jpg"],
+    title: "Berbagi Puasa Arafah",
+    description:
+      "Kegiatan berbagi makanan saat Puasa Arafah bersama GAMAIS ITB untuk menumbuhkan semangat kepedulian dan kebersamaan di lingkungan kampus.",
     category: "Sosial",
   },
   {
-    images: ["/programs/kompetisi.jpg", "/programs/kompetisi2.jpg"],
-    title: "Kompetisi Fisika",
+    images: ["/Dokumentasi Kegiatan/Kunjungan Alumni.jpg"],
+    title: "Kunjungan Alumni",
     description:
-      "Mengadakan dan mengikuti berbagai kompetisi fisika tingkat regional dan nasional.",
-    category: "Kompetisi",
+      "Silaturahmi dan sharing pengalaman bersama alumni GAMAIS ITB untuk memperluas wawasan dan jaringan mahasiswa.",
+    category: "Alumni Relation",
   },
   {
-    images: ["/programs/workshop.jpg", "/programs/workshop2.jpg"],
-    title: "Workshop & Seminar",
+    images: ["/Dokumentasi Kegiatan/Kunjungan LDK.jpg"],
+    title: "Kunjungan LDK",
     description:
-      "Kegiatan pengembangan skill dan wawasan melalui workshop dan seminar berkualitas.",
-    category: "Pengembangan",
+      "Kunjungan dan kolaborasi dengan LDK kampus lain untuk bertukar pengalaman dan memperkuat jaringan dakwah kampus.",
+    category: "Relasi Strategis",
   },
   {
-    images: ["/programs/mentoring.jpg", "/programs/mentoring2.jpg"],
-    title: "Mentoring Program",
+    images: ["/Dokumentasi Kegiatan/Pelatihan dan Bonding.jpeg"],
+    title: "Pelatihan dan Bonding",
     description:
-      "Program pendampingan mahasiswa baru oleh senior untuk adaptasi kampus.",
-    category: "Mentoring",
+      "Pelatihan dan penguatan bonding antar anggota GAMAIS ITB melalui berbagai aktivitas pengembangan diri dan kebersamaan.",
+    category: "PSDM",
+  },
+  {
+    images: ["/Dokumentasi Kegiatan/Training Kepemimpinan.JPG"],
+    title: "Training Kepemimpinan",
+    description:
+      "Pelatihan kepemimpinan untuk staff GAMAIS ITB agar siap menjadi pemimpin yang berintegritas dan inspiratif.",
+    category: "Kesekjenan",
   },
 ];
 
@@ -59,11 +83,13 @@ export default function ProgramsPage() {
       <section className="bg-muted/40 px-4 py-16 md:px-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 text-center">
-            <h1 className="mb-4 text-3xl font-bold">Program GAMAIS ITB</h1>
+            <h1 className="mb-4 text-3xl font-bold">
+              Program Unggulan GAMAIS ITB
+            </h1>
             <p className="mx-auto max-w-2xl text-muted-foreground">
               Berbagai kegiatan dan program yang telah diselenggarakan oleh
-              komunitas mahasiswa GAMAIS ITB untuk pengembangan diri, akademik,
-              dan kebersamaan.
+              mahasiswa GAMAIS ITB untuk pengembangan diri, akademik, dan
+              kebersamaan.
             </p>
           </div>
           <div className="flex flex-col gap-16">
@@ -72,38 +98,70 @@ export default function ProgramsPage() {
                 key={index}
                 className="w-full max-w-full overflow-hidden border-2 border-primary/30 shadow-xl"
               >
-                <div className="flex w-full flex-col lg:flex-row">
-                  <div className="relative flex min-h-[350px] w-full gap-2 bg-gray-200 lg:w-2/3">
-                    {program.images.map((img, i) => (
-                      <div key={i} className="relative h-72 min-w-0 flex-1">
-                        <Image
-                          src={img}
-                          alt={program.title + " image " + (i + 1)}
-                          fill
-                          className="rounded-none object-cover"
-                          sizes="100vw"
-                          priority={index < 2 && i === 0}
-                        />
+                <div className="flex flex-col">
+                  {/* Images: show both if available, else one */}
+                  {program.images.length > 1 ? (
+                    <div className="relative flex h-72 w-full">
+                      {program.images.map((img, i) => (
+                        <div key={i} className="relative h-72 w-1/2">
+                          <Image
+                            src={img ?? "/placeholder.jpg"}
+                            alt={program.title + " image " + (i + 1)}
+                            fill
+                            className="object-cover"
+                            sizes="50vw"
+                            priority={index < 2 && i === 0}
+                          />
+                        </div>
+                      ))}
+                      <div className="absolute left-4 top-4 z-30 flex gap-2">
+                        {(Array.isArray(program.category)
+                          ? program.category
+                          : [program.category]
+                        ).map((cat, i) => (
+                          <Badge key={i} variant="secondary">
+                            {cat}
+                          </Badge>
+                        ))}
                       </div>
-                    ))}
-                    <Badge
-                      className="absolute left-4 top-4 z-10"
-                      variant="secondary"
-                    >
-                      {program.category}
-                    </Badge>
-                  </div>
-                  <CardContent className="flex min-w-0 flex-1 flex-col justify-center p-10">
+                    </div>
+                  ) : (
+                    <div className="relative h-72 w-full">
+                      <Image
+                        src={program.images[0] ?? "/placeholder.jpg"}
+                        alt={program.title + " image"}
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        priority={index < 2}
+                      />
+                      <div className="absolute left-4 top-4 z-30 flex gap-2">
+                        {(Array.isArray(program.category)
+                          ? program.category
+                          : [program.category]
+                        ).map((cat, i) => (
+                          <Badge key={i} variant="secondary">
+                            {cat}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {/* Content */}
+                  <CardContent className="flex flex-col justify-center p-8">
                     <h3 className="mb-3 text-3xl font-bold text-primary">
                       {program.title}
                     </h3>
-                    <p className="mb-2 text-lg text-muted-foreground">
+                    <p className="mb-2 text-base text-muted-foreground">
                       {program.description}
                     </p>
                   </CardContent>
                 </div>
               </Card>
             ))}
+            <div className="text-center text-lg font-normal text-muted-foreground">
+              and many more...
+            </div>
           </div>
         </div>
       </section>

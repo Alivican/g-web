@@ -24,8 +24,8 @@ export default async function HomePage() {
             (GAMAIS) ITB
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Wadah aspirasi dan pengembangan diri bagi mahasiswa Fisika ITB.
-            Menjadi HIMAFI yang solid, kontributif, dan inspiratif.
+            Tempat berproses dan berkolaborasi bagi kamu, mahasiswa Islam ITB,
+            untuk menjadi progresif, kontributif, dan inspiratif.
           </p>
           <div className="mt-8 flex gap-4">
             <Button asChild>
@@ -109,10 +109,14 @@ export default async function HomePage() {
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-4 text-3xl font-bold">Tentang Kami</h2>
             <p className="text-muted-foreground">
-              HIMAFI ITB dibentuk untuk ikut membantu dan membina terbentuknya
-              sarjana fisika yang jujur, pandai, berharga diri, dan mempunyai
-              integritas terhadap bangsa dan negara Indonesia (AD/ART HIMAFI
-              ITB, 1981).
+              Keluarga Mahasiswa Islam Institut Teknologi Bandung (GAMAIS ITB)
+              merupakan organisasi mahasiswa di lingkup kampus Institut
+              Teknologi Bandung yang sekaligus berperan sebagai Lembaga Dakwah
+              Kampus (LDK) di ITB. Sejak 30 Agustus 1987, organisasi ini
+              menaungi seluruh aktivitas dakwah Islam mahasiswa di ITB, termasuk
+              aktivitas dakwah di program studi dan fakultas. Dengan semangat
+              menyebarkan kebaikan, GAMAIS ITB hadir untuk membangkitkan potensi
+              calon pemimpin masa depan yang memiliki dasar keislaman yang kuat.
             </p>
             <Button className="mt-6" variant="outline" asChild>
               <Link href="/about">Pelajari Lebih Lanjut</Link>
@@ -121,7 +125,7 @@ export default async function HomePage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="bg-muted/40 px-4 py-16 md:px-20">
+        {/* <section className="bg-muted/40 px-4 py-16 md:px-20">
           <h2 className="mb-8 text-center text-3xl font-bold">
             Frequently Asked Questions
           </h2>
@@ -154,16 +158,17 @@ export default async function HomePage() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-        </section>
+        </section> */}
 
         {/* Footer */}
         <footer className="border-t bg-background">
           <div className="mx-auto max-w-6xl px-4 py-8 md:px-20">
             <div className="grid gap-8 md:grid-cols-3">
               <div>
-                <h3 className="text-lg font-semibold">HIMAFI ITB</h3>
+                <h3 className="text-lg font-semibold">GAMAIS ITB</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Gedung Fisika, Jl. Ganesha No. 10, Bandung
+                  Gedung Kayu Lt. 2 Komplek Masjid Salman ITB Jl. Ganesha No.7,
+                  Bandung 40132
                 </p>
               </div>
               <div>
@@ -222,7 +227,7 @@ export default async function HomePage() {
               </div>
             </div>
             <div className="mt-8 border-t pt-4 text-center text-sm text-muted-foreground">
-              © {new Date().getFullYear()} HIMAFI ITB. All rights reserved.
+              © {new Date().getFullYear()} GAMAIS ITB. All rights reserved.
             </div>
           </div>
         </footer>
