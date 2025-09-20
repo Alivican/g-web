@@ -8,7 +8,14 @@ import {
 import { Badge } from "~/components/ui/badge";
 import Image from "next/image";
 
-const programs = [
+export type Program = {
+  images: string[];
+  title: string;
+  description: string;
+  category?: string | string[];
+};
+
+export const programs: Program[] = [
   {
     images: [
       "/Dokumentasi Kegiatan/Mentoring Agama.jpg",
@@ -80,10 +87,10 @@ const programs = [
 export default function ProgramsPage() {
   return (
     <main className="bg-background text-foreground">
-      <section className="bg-muted/40 px-4 py-16 md:px-20">
+      <section className="flex flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-transparent px-4 py-16 md:px-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 text-center">
-            <h1 className="mb-4 text-3xl font-bold">
+            <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl">
               Program Unggulan GAMAIS ITB
             </h1>
             <p className="mx-auto max-w-2xl text-muted-foreground">

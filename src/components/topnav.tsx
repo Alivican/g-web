@@ -51,7 +51,6 @@ export function TopNav() {
           <Link href="/aboutus">About Us</Link>
           <Link href="/programs">Programs</Link>
           <Link href="/gwil-keresidenan">G-Wil & Keresidenan</Link>
-          <Link href="/faq">FAQ</Link>
           {["admin", "member"].includes(role) && (
             <>
               <Link href="/editor" className="font-semibold text-primary">
@@ -93,11 +92,7 @@ export function TopNav() {
                   <Button variant="outline">Sign Out</Button>
                 </Link>
               </div>
-            ) : (
-              <Link href="/api/auth/signin">
-                <Button>Sign In</Button>
-              </Link>
-            )}
+            ) : null}
           </div>
 
           {/* Mobile Menu */}
@@ -130,9 +125,6 @@ export function TopNav() {
                 </SheetClose>
                 <SheetClose asChild>
                   <Link href="/gwil-keresidenan">G-Wil & Keresidenan</Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link href="/faq">FAQ</Link>
                 </SheetClose>
                 {["admin", "member"].includes(role) && (
                   <>

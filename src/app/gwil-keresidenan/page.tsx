@@ -100,13 +100,16 @@ const keresidenan = [
 
 export default function GWilKeresidenanPage() {
   return (
-    <main className="bg-background px-4 py-16 text-foreground md:px-20">
-      <section className="mb-16">
-        <h1 className="mb-2 text-center text-3xl font-bold">GAMAIS Wilayah</h1>
-        <p className="mb-8 text-center text-lg text-muted-foreground">
+    <main className="bg-background text-foreground">
+      {/* Hero Section - Gradient background for consistency */}
+      <section className="flex flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-transparent px-4 py-16 text-center md:px-20">
+        <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl">
+          GAMAIS Wilayah
+        </h1>
+        <p className="mb-8 text-lg text-muted-foreground">
           GAMAIS terdiri atas beberapa G-wil yang mewakili tiap fakultas.
         </p>
-        <div className="xs:grid-cols-2 mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="xs:grid-cols-2 grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {gwil.map((g, i) => (
             <Card
               key={i}
@@ -138,8 +141,16 @@ export default function GWilKeresidenanPage() {
           ))}
         </div>
       </section>
-      <section>
-        <h2 className="mb-8 text-center text-2xl font-bold">Keresidenan</h2>
+
+      {/* Keresidenan Section - Gradient background for consistency */}
+      <section className="flex flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-transparent px-4 py-16 text-center md:px-20">
+        <h2 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl">
+          Keresidenan
+        </h2>
+        <p className="mb-8 max-w-2xl text-lg text-muted-foreground">
+          Keresidenan merupakan perwakilan GAMAIS di wilayah Jatinangor dan
+          Cirebon.
+        </p>
         <div className="xs:grid-cols-2 mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
           {keresidenan.map((k, i) => (
             <Card
