@@ -17,9 +17,25 @@ import { FaInstagram, FaLinkedin, FaEnvelope, FaMedium } from "react-icons/fa";
 export default async function HomePage() {
   return (
     <HydrateClient>
-      <main className="bg-background text-foreground">
+      <main className="relative overflow-hidden bg-background text-foreground">
+        {/* Background Image with Dim + Fade Out */}
+        <div className="pointer-events-none absolute inset-0 -z-10 select-none">
+          <Image
+            src="/public/background picture.png"
+            alt="Background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden="true"
+            draggable={false}
+          />
+          {/* Overlay: darker at top, fading to transparent at bottom */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
+        </div>
+
         {/* Hero Section */}
-        <section className="flex h-[80vh] flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-transparent text-center">
+        <section className="flex h-[80vh] flex-col items-center justify-center text-center">
           <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-6xl">
             Keluarga Mahasiswa Islam
             <br />
@@ -29,12 +45,6 @@ export default async function HomePage() {
             Tempat berproses dan berkolaborasi bagi kamu, mahasiswa Islam ITB,
             untuk menjadi progresif, kontributif, dan inspiratif.
           </p>
-          {/* <div className="mt-8 flex gap-4">
-            <Button asChild>
-              <Link href="/about">Selengkapnya</Link>
-            </Button>
-            <Button variant="outline">Hubungi Kami</Button>
-          </div> */}
         </section>
 
         {/* Ongoing Program Section */}
@@ -42,7 +52,7 @@ export default async function HomePage() {
           <h2 className="mb-8 text-center text-3xl font-bold">
             Program Terkini
           </h2>
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto mb-10 max-w-4xl">
             <Carousel className="relative">
               <CarouselContent>
                 {programsData.map((program: Program, idx: number) => (
@@ -84,6 +94,90 @@ export default async function HomePage() {
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
+          </div>
+
+          {/* Recruitment Card */}
+          <div className="mx-auto max-w-4xl">
+            <Card className="border-0 bg-gradient-to-br from-teal-600 via-emerald-700 to-green-900 text-white shadow-2xl transition-all duration-300">
+              <CardContent className="flex flex-col gap-4 p-8 md:p-10">
+                <h3 className="mb-4 text-center text-3xl font-extrabold drop-shadow-lg md:text-4xl">
+                  📢 MEMANGGIL PUTRA PUTRI TERBAIK NEGERI ✨
+                </h3>
+                <div className="mb-4 text-lg font-medium">
+                  <p className="italic">
+                    &ldquo;Zaman ini penuh huru-hara. Peradaban tidak lagi
+                    berdiri hanya di atas tanah, tetapi di atas keyakinan dan
+                    keberanian.&rdquo;
+                  </p>
+                  <p className="mt-3">
+                    Di tengah kekacauan, lahirlah generasi baru. Generasi yang
+                    tidak hanya hidup untuk dirinya sendiri, tetapi untuk sebuah
+                    amanah besar: menjaga umat, menyalakan cahaya, dan memikul
+                    tanggung jawab peradaban.
+                  </p>
+                  <p className="mt-3">
+                    Namun, jalan itu tidak tenang. Ia penuh ujian, rintangan,
+                    dan godaan. Pertanyaannya sederhana:
+                    <span className="font-bold">
+                      {" "}
+                      Apakah engkau hanya ingin jadi penonton sejarah, atau siap
+                      menjadi bagian dari barisan yang menegakkannya? 🔥
+                    </span>
+                  </p>
+                  <p className="mt-3 font-bold">
+                    ⚔ Saatnya ikut serta dalam SIMFONI dan bergabung menjadi
+                    kader muda GAMAIS.
+                  </p>
+                  <p className="mt-1">
+                    Bangun barisanmu, teguhkan keyakinanmu, dan buktikan
+                    kesetiaanmu pada amanah ini.
+                  </p>
+                </div>
+
+                {/* Registration details - improved layout for wider card */}
+                <div className="mt-2 flex flex-col gap-6 md:flex-row md:justify-between md:gap-4">
+                  <div className="md:flex-1">
+                    <div className="mb-2">
+                      <span className="font-bold">Periode Daftar:</span>
+                      <span className="ml-2 rounded bg-emerald-100/20 px-2 py-1 font-semibold">
+                        12 – 23 September 2025
+                      </span>
+                    </div>
+                    <div>
+                      <span className="font-bold">Info lebih lanjut:</span>
+                      <div className="ml-2 mt-1 flex flex-wrap gap-3">
+                        <a
+                          href="https://wa.me/6283820206067"
+                          className="flex items-center gap-1 underline hover:text-emerald-200"
+                        >
+                          <span>👦 Lyan</span>
+                        </a>
+                        <a
+                          href="https://wa.me/6287722256061"
+                          className="flex items-center gap-1 underline hover:text-emerald-200"
+                        >
+                          <span>🧕 Hasna</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="md:flex md:flex-1 md:items-center md:justify-end">
+                    <Button
+                      asChild
+                      className="w-full bg-white text-lg font-bold text-teal-700 shadow-lg transition-all hover:bg-emerald-100 hover:text-green-800 md:w-auto"
+                    >
+                      <a
+                        href="https://s.id/DaftarSimfoni2025"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Daftar Sekarang
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
@@ -148,7 +242,7 @@ export default async function HomePage() {
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"
                     >
-                      medium.com/gamaisitb
+                      gamaisitb
                     </a>
                   </li>
                 </ul>

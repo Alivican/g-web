@@ -52,7 +52,7 @@ export const programs: Program[] = [
     title: "Berbagi Puasa Arafah",
     description:
       "Kegiatan berbagi makanan saat Puasa Arafah bersama GAMAIS ITB untuk menumbuhkan semangat kepedulian dan kebersamaan di lingkungan kampus.",
-    category: "Sosial",
+    category: "Pusat",
   },
   {
     images: ["/Dokumentasi Kegiatan/Kunjungan Alumni.jpg"],
